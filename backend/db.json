@@ -44,6 +44,15 @@
       "role": "Employee",
       "departmentId": "",
       "status": "Active"
+    },
+    {
+      "id": "u-1783848874175",
+      "email": "brijeshshah654@gmail.com",
+      "password": "123",
+      "name": "Brijesh",
+      "role": "Employee",
+      "departmentId": "",
+      "status": "Active"
     }
   ],
   "departments": [
@@ -186,6 +195,15 @@
       "startTime": "09:00",
       "endTime": "10:00",
       "status": "Upcoming"
+    },
+    {
+      "id": "b-1783848964430",
+      "assetId": "a-3",
+      "employeeId": "u-1783848874175",
+      "date": "2026-07-12",
+      "startTime": "10:00",
+      "endTime": "11:00",
+      "status": "Cancelled"
     }
   ],
   "maintenance": [],
@@ -212,6 +230,41 @@
       "userName": "Brijesh",
       "action": "Booked resource Conference Room A on 2026-07-12 09:00-10:00",
       "timestamp": "2026-07-12T09:18:54.934Z"
+    },
+    {
+      "id": "l-1783848874196",
+      "userId": "u-1783848874175",
+      "userName": "Brijesh",
+      "action": "User signed up as Employee",
+      "timestamp": "2026-07-12T09:34:34.196Z"
+    },
+    {
+      "id": "l-1783848964439",
+      "userId": "u-1783848874175",
+      "userName": "Brijesh",
+      "action": "Booked resource Conference Room A on 2026-07-12 10:00-11:00",
+      "timestamp": "2026-07-12T09:36:04.439Z"
+    },
+    {
+      "id": "l-1783848966920",
+      "userId": "u-1783848874175",
+      "userName": "Brijesh",
+      "action": "Updated booking b-1783848964430 to Cancelled",
+      "timestamp": "2026-07-12T09:36:06.920Z"
+    },
+    {
+      "id": "l-1783849331722",
+      "userId": "u-1",
+      "userName": "Admin User",
+      "action": "User logged in",
+      "timestamp": "2026-07-12T09:42:11.723Z"
+    },
+    {
+      "id": "l-1783849556007",
+      "userId": "u-1",
+      "userName": "Admin User",
+      "action": "User logged in",
+      "timestamp": "2026-07-12T09:45:56.007Z"
     }
   ]
 }
