@@ -442,6 +442,7 @@ app.post("/api/auth/login", async (req, res) => {
 app.get("/api/auth/me", authMiddleware, async (req, res) => {
   try {
     const user = await User.findOne({ id: req.user.id });
+    console.log("user:", user);
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
@@ -489,6 +490,7 @@ app.post("/api/departments", authMiddleware, async (req, res) => {
     await newDept.save();
     await logAction(req.user.id, req.user.name, `Created department ${name}`);
     res.json(newDept);
+    console.log("newDept:", newDept);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
