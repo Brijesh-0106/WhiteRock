@@ -19,7 +19,7 @@ import {
   ArrowRightLeft,
   RefreshCw,
   Eye,
-  Download
+  Download,
 } from "lucide-react";
 
 const API_BASE = "http://localhost:5000/api";
@@ -63,23 +63,53 @@ const BrandLogo = ({ size = 28 }) => {
 };
 
 const GoogleIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style={{ marginRight: "10px" }}>
-    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
-    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
-    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05" />
-    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335" />
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    style={{ marginRight: "10px" }}
+  >
+    <path
+      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+      fill="#4285F4"
+    />
+    <path
+      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+      fill="#34A853"
+    />
+    <path
+      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
+      fill="#FBBC05"
+    />
+    <path
+      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
+      fill="#EA4335"
+    />
   </svg>
 );
 
 const GithubIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style={{ marginRight: "10px" }}>
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    style={{ marginRight: "10px" }}
+  >
     <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
   </svg>
 );
 
-const CustomSelect = ({ value, onChange, options, placeholder = "Select option", style }) => {
+const CustomSelect = ({
+  value,
+  onChange,
+  options,
+  placeholder = "Select option",
+  style,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const selectedOption = options.find(opt => opt.value === value);
+  const selectedOption = options.find((opt) => opt.value === value);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -93,7 +123,11 @@ const CustomSelect = ({ value, onChange, options, placeholder = "Select option",
   }, []);
 
   return (
-    <div ref={dropdownRef} className="custom-select-container" style={{ position: "relative", width: "100%", ...style }}>
+    <div
+      ref={dropdownRef}
+      className="custom-select-container"
+      style={{ position: "relative", width: "100%", ...style }}
+    >
       <div
         className="form-control"
         style={{
@@ -106,12 +140,21 @@ const CustomSelect = ({ value, onChange, options, placeholder = "Select option",
           borderRadius: "8px",
           padding: "10px 14px",
           color: selectedOption ? "#c3c2b7" : "#8e8d85",
-          userSelect: "none"
+          userSelect: "none",
         }}
         onClick={() => setIsOpen(!isOpen)}
       >
         <span>{selectedOption ? selectedOption.label : placeholder}</span>
-        <span style={{ fontSize: "10px", opacity: 0.6, transform: isOpen ? "rotate(180deg)" : "none", transition: "transform 0.2s" }}>▼</span>
+        <span
+          style={{
+            fontSize: "10px",
+            opacity: 0.6,
+            transform: isOpen ? "rotate(180deg)" : "none",
+            transition: "transform 0.2s",
+          }}
+        >
+          ▼
+        </span>
       </div>
       {isOpen && (
         <div
@@ -126,7 +169,7 @@ const CustomSelect = ({ value, onChange, options, placeholder = "Select option",
             boxShadow: "0 10px 25px rgba(0, 0, 0, 0.5)",
             zIndex: 1000,
             maxHeight: "220px",
-            overflowY: "auto"
+            overflowY: "auto",
           }}
         >
           {options.map((opt) => (
@@ -135,16 +178,22 @@ const CustomSelect = ({ value, onChange, options, placeholder = "Select option",
               style={{
                 padding: "10px 14px",
                 cursor: "pointer",
-                backgroundColor: value === opt.value ? "rgba(217, 119, 6, 0.15)" : "transparent",
+                backgroundColor:
+                  value === opt.value
+                    ? "rgba(217, 119, 6, 0.15)"
+                    : "transparent",
                 color: value === opt.value ? "#d97706" : "#c3c2b7",
                 fontSize: "14px",
-                transition: "background-color 0.2s"
+                transition: "background-color 0.2s",
               }}
               onMouseEnter={(e) => {
-                if (value !== opt.value) e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.02)";
+                if (value !== opt.value)
+                  e.currentTarget.style.backgroundColor =
+                    "rgba(255, 255, 255, 0.02)";
               }}
               onMouseLeave={(e) => {
-                if (value !== opt.value) e.currentTarget.style.backgroundColor = "transparent";
+                if (value !== opt.value)
+                  e.currentTarget.style.backgroundColor = "transparent";
               }}
               onClick={() => {
                 onChange(opt.value);
@@ -197,18 +246,51 @@ function App() {
   const [selectedAsset, setSelectedAsset] = useState(null);
   const [selectedAudit, setSelectedAudit] = useState(null);
 
-  const [deptForm, setDeptForm] = useState({ name: "", parentId: "", headId: "" });
+  const [deptForm, setDeptForm] = useState({
+    name: "",
+    parentId: "",
+    headId: "",
+  });
   const [catForm, setCatForm] = useState({ name: "", fields: "" });
   const [assetForm, setAssetForm] = useState({
-    name: "", category: "", serialNumber: "", acquisitionDate: "",
-    acquisitionCost: "", condition: "Excellent", location: "", isBookable: false, customFields: {}
+    name: "",
+    category: "",
+    serialNumber: "",
+    acquisitionDate: "",
+    acquisitionCost: "",
+    condition: "Excellent",
+    location: "",
+    isBookable: false,
+    customFields: {},
   });
-  const [allocateForm, setAllocateForm] = useState({ employeeId: "", departmentId: "", expectedReturnDate: "" });
+  const [allocateForm, setAllocateForm] = useState({
+    employeeId: "",
+    departmentId: "",
+    expectedReturnDate: "",
+  });
   const [transferForm, setTransferForm] = useState({ targetEmployeeId: "" });
-  const [returnForm, setReturnForm] = useState({ condition: "Good", remarks: "" });
-  const [bookingForm, setBookingForm] = useState({ assetId: "", date: "", startTime: "09:00", endTime: "10:00" });
-  const [maintenanceForm, setMaintenanceForm] = useState({ assetId: "", description: "", priority: "Medium" });
-  const [auditForm, setAuditForm] = useState({ name: "", scope: "All", startDate: "", endDate: "", auditors: [] });
+  const [returnForm, setReturnForm] = useState({
+    condition: "Good",
+    remarks: "",
+  });
+  const [bookingForm, setBookingForm] = useState({
+    assetId: "",
+    date: "",
+    startTime: "09:00",
+    endTime: "10:00",
+  });
+  const [maintenanceForm, setMaintenanceForm] = useState({
+    assetId: "",
+    description: "",
+    priority: "Medium",
+  });
+  const [auditForm, setAuditForm] = useState({
+    name: "",
+    scope: "All",
+    startDate: "",
+    endDate: "",
+    auditors: [],
+  });
 
   const [orgSubTab, setOrgSubTab] = useState("departments");
   const [selectedAllocAssetId, setSelectedAllocAssetId] = useState("");
@@ -299,10 +381,10 @@ function App() {
       }
 
       if (assetsData.length > 0) {
-        setSelectedAllocAssetId(prev => prev || assetsData[0].id);
-        const bookables = assetsData.filter(a => a.isBookable);
+        setSelectedAllocAssetId((prev) => prev || assetsData[0].id);
+        const bookables = assetsData.filter((a) => a.isBookable);
         if (bookables.length > 0) {
-          setSelectedBookingAssetId(prev => prev || bookables[0].id);
+          setSelectedBookingAssetId((prev) => prev || bookables[0].id);
         }
       }
 
@@ -326,7 +408,11 @@ function App() {
     try {
       setLoaded(false);
       setLoadingMsg("Registering...");
-      const data = await apiRequest("/auth/signup", "POST", { email, password, name });
+      const data = await apiRequest("/auth/signup", "POST", {
+        email,
+        password,
+        name,
+      });
       localStorage.setItem("token", data.token);
       setToken(data.token);
       setAuthError("");
@@ -397,8 +483,14 @@ function App() {
   const addCategory = async (e) => {
     e.preventDefault();
     try {
-      const fieldsArray = catForm.fields.split(",").map(f => f.trim()).filter(Boolean);
-      await apiRequest("/categories", "POST", { name: catForm.name, fields: fieldsArray });
+      const fieldsArray = catForm.fields
+        .split(",")
+        .map((f) => f.trim())
+        .filter(Boolean);
+      await apiRequest("/categories", "POST", {
+        name: catForm.name,
+        fields: fieldsArray,
+      });
       setCatForm({ name: "", fields: "" });
       setActiveModal(null);
       loadData();
@@ -430,8 +522,15 @@ function App() {
     try {
       await apiRequest("/assets", "POST", assetForm);
       setAssetForm({
-        name: "", category: "", serialNumber: "", acquisitionDate: "",
-        acquisitionCost: "", condition: "Excellent", location: "", isBookable: false, customFields: {}
+        name: "",
+        category: "",
+        serialNumber: "",
+        acquisitionDate: "",
+        acquisitionCost: "",
+        condition: "Excellent",
+        location: "",
+        isBookable: false,
+        customFields: {},
       });
       setActiveModal(null);
       loadData();
@@ -445,9 +544,13 @@ function App() {
     try {
       await apiRequest("/assets/allocate", "POST", {
         assetId: selectedAsset.id,
-        ...allocateForm
+        ...allocateForm,
       });
-      setAllocateForm({ employeeId: "", departmentId: "", expectedReturnDate: "" });
+      setAllocateForm({
+        employeeId: "",
+        departmentId: "",
+        expectedReturnDate: "",
+      });
       setActiveModal(null);
       loadData();
     } catch (err) {
@@ -460,7 +563,7 @@ function App() {
     try {
       await apiRequest("/assets/request-transfer", "POST", {
         assetId: selectedAsset.id,
-        targetEmployeeId: transferForm.targetEmployeeId
+        targetEmployeeId: transferForm.targetEmployeeId,
       });
       setTransferForm({ targetEmployeeId: "" });
       setActiveModal(null);
@@ -485,7 +588,7 @@ function App() {
       await apiRequest("/assets/return", "POST", {
         assetId: selectedAsset.id,
         condition: returnForm.condition,
-        remarks: returnForm.remarks
+        remarks: returnForm.remarks,
       });
       setReturnForm({ condition: "Good", remarks: "" });
       setActiveModal(null);
@@ -499,7 +602,12 @@ function App() {
     e.preventDefault();
     try {
       await apiRequest("/bookings", "POST", bookingForm);
-      setBookingForm({ assetId: "", date: "", startTime: "09:00", endTime: "10:00" });
+      setBookingForm({
+        assetId: "",
+        date: "",
+        startTime: "09:00",
+        endTime: "10:00",
+      });
       setActiveModal(null);
       loadData();
     } catch (err) {
@@ -530,7 +638,10 @@ function App() {
 
   const updateMaintenanceStatus = async (id, status, technician = "") => {
     try {
-      await apiRequest(`/maintenance/${id}/status`, "PUT", { status, technician });
+      await apiRequest(`/maintenance/${id}/status`, "PUT", {
+        status,
+        technician,
+      });
       loadData();
     } catch (err) {
       alert(err.message);
@@ -541,7 +652,13 @@ function App() {
     e.preventDefault();
     try {
       await apiRequest("/audits", "POST", auditForm);
-      setAuditForm({ name: "", scope: "All", startDate: "", endDate: "", auditors: [] });
+      setAuditForm({
+        name: "",
+        scope: "All",
+        startDate: "",
+        endDate: "",
+        auditors: [],
+      });
       setActiveModal(null);
       loadData();
     } catch (err) {
@@ -551,7 +668,10 @@ function App() {
 
   const verifyAuditAsset = async (auditId, assetId, verificationStatus) => {
     try {
-      await apiRequest(`/audits/${auditId}/verify`, "PUT", { assetId, verificationStatus });
+      await apiRequest(`/audits/${auditId}/verify`, "PUT", {
+        assetId,
+        verificationStatus,
+      });
       loadData();
     } catch (err) {
       alert(err.message);
@@ -577,14 +697,34 @@ function App() {
   };
 
   const exportCSVReport = () => {
-    const headers = ["Asset Tag", "Asset Name", "Category", "Condition", "Status", "Location", "Value"];
-    const rows = assets.map(a => [a.tag, a.name, a.category, a.condition, a.status, a.location, a.acquisitionCost]);
-    let csvContent = "data:text/csv;charset=utf-8,"
-      + [headers.join(","), ...rows.map(e => e.join(","))].join("\n");
+    const headers = [
+      "Asset Tag",
+      "Asset Name",
+      "Category",
+      "Condition",
+      "Status",
+      "Location",
+      "Value",
+    ];
+    const rows = assets.map((a) => [
+      a.tag,
+      a.name,
+      a.category,
+      a.condition,
+      a.status,
+      a.location,
+      a.acquisitionCost,
+    ]);
+    let csvContent =
+      "data:text/csv;charset=utf-8," +
+      [headers.join(","), ...rows.map((e) => e.join(","))].join("\n");
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", `AssetFlow_Report_${new Date().toISOString().split("T")[0]}.csv`);
+    link.setAttribute(
+      "download",
+      `AssetFlow_Report_${new Date().toISOString().split("T")[0]}.csv`,
+    );
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -598,9 +738,13 @@ function App() {
         assetId: selectedAllocAssetId,
         employeeId: allocateForm.employeeId,
         departmentId: allocateForm.departmentId,
-        expectedReturnDate: allocateForm.expectedReturnDate
+        expectedReturnDate: allocateForm.expectedReturnDate,
       });
-      setAllocateForm({ employeeId: "", departmentId: "", expectedReturnDate: "" });
+      setAllocateForm({
+        employeeId: "",
+        departmentId: "",
+        expectedReturnDate: "",
+      });
       loadData();
       alert("Asset successfully allocated!");
     } catch (err) {
@@ -614,7 +758,7 @@ function App() {
     try {
       await apiRequest("/assets/request-transfer", "POST", {
         assetId: selectedAllocAssetId,
-        targetEmployeeId: transferTargetEmployeeId
+        targetEmployeeId: transferTargetEmployeeId,
       });
       setTransferTargetEmployeeId("");
       setTransferReason("");
@@ -632,7 +776,7 @@ function App() {
         assetId: selectedBookingAssetId,
         date: selectedBookingDate,
         startTime: slotStart,
-        endTime: slotEnd
+        endTime: slotEnd,
       });
       loadData();
       alert("Booking successfully registered!");
@@ -643,24 +787,31 @@ function App() {
 
   if (!token) {
     return (
-      <div className="auth-wrapper" style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        minHeight: "100vh",
-        background: "#121315",
-        backgroundImage: "radial-gradient(circle at 50% 50%, rgba(217, 119, 6, 0.1) 0%, transparent 60%)"
-      }}>
-        <div className="card auth-card" style={{
-          backgroundColor: "#0d111d",
-          border: "1px solid rgba(255, 255, 255, 0.08)",
-          borderRadius: "16px",
-          padding: "40px 32px",
-          maxWidth: "440px",
-          width: "100%",
-          position: "relative",
-          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.6)"
-        }}>
+      <div
+        className="auth-wrapper"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          minHeight: "100vh",
+          background: "#121315",
+          backgroundImage:
+            "radial-gradient(circle at 50% 50%, rgba(217, 119, 6, 0.1) 0%, transparent 60%)",
+        }}
+      >
+        <div
+          className="card auth-card"
+          style={{
+            backgroundColor: "#0d111d",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
+            borderRadius: "16px",
+            padding: "40px 32px",
+            maxWidth: "440px",
+            width: "100%",
+            position: "relative",
+            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.6)",
+          }}
+        >
           {/* Close button X */}
           <button
             type="button"
@@ -678,30 +829,56 @@ function App() {
               border: "none",
               color: "#8e8d85",
               cursor: "pointer",
-              transition: "color 0.2s"
+              transition: "color 0.2s",
             }}
           >
             <X size={18} />
           </button>
 
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "24px" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              marginBottom: "24px",
+            }}
+          >
             <BrandLogo />
-            <h2 style={{ fontSize: "28px", fontWeight: "700", color: "#ffffff", marginTop: "16px", marginBottom: "4px" }}>
+            <h2
+              style={{
+                fontSize: "28px",
+                fontWeight: "700",
+                color: "#ffffff",
+                marginTop: "16px",
+                marginBottom: "4px",
+              }}
+            >
               {authMode === "login" ? "Welcome back" : "Create account"}
             </h2>
             <p style={{ fontSize: "14px", color: "#8e8d85" }}>
-              {authMode === "login" ? "Log in to your WhiteRock account" : "Sign up for a WhiteRock account"}
+              {authMode === "login"
+                ? "Log in to your WhiteRock account"
+                : "Sign up for a WhiteRock account"}
             </p>
           </div>
 
           {/* Social Buttons */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "24px" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "12px",
+              marginBottom: "24px",
+            }}
+          >
             <button
               type="button"
               onClick={() => {
                 setEmail("admin@assetflow.com");
                 setPassword("admin123");
-                alert("Simulating Google sign-in. Demo admin credentials loaded!");
+                alert(
+                  "Simulating Google sign-in. Demo admin credentials loaded!",
+                );
               }}
               style={{
                 display: "flex",
@@ -716,7 +893,7 @@ function App() {
                 fontSize: "14px",
                 fontWeight: "500",
                 cursor: "pointer",
-                transition: "background-color 0.2s"
+                transition: "background-color 0.2s",
               }}
             >
               <GoogleIcon />
@@ -751,24 +928,69 @@ function App() {
           </div>
 
           {/* Separator */}
-          <div style={{ display: "flex", alignItems: "center", margin: "24px 0", gap: "10px" }}>
-            <div style={{ flex: 1, height: "1px", backgroundColor: "rgba(255,255,255,0.06)" }} />
-            <span style={{ fontSize: "12px", color: "#5a5e66" }}>or continue with email</span>
-            <div style={{ flex: 1, height: "1px", backgroundColor: "rgba(255,255,255,0.06)" }} />
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              margin: "24px 0",
+              gap: "10px",
+            }}
+          >
+            <div
+              style={{
+                flex: 1,
+                height: "1px",
+                backgroundColor: "rgba(255,255,255,0.06)",
+              }}
+            />
+            <span style={{ fontSize: "12px", color: "#5a5e66" }}>
+              or continue with email
+            </span>
+            <div
+              style={{
+                flex: 1,
+                height: "1px",
+                backgroundColor: "rgba(255,255,255,0.06)",
+              }}
+            />
           </div>
 
-          {authError && <div style={{ color: "#ef4444", fontSize: "13px", marginBottom: "16px", textAlign: "center", backgroundColor: "rgba(239, 68, 68, 0.1)", padding: "8px", borderRadius: "6px", border: "1px solid rgba(239, 68, 68, 0.2)" }}>{authError}</div>}
+          {authError && (
+            <div
+              style={{
+                color: "#ef4444",
+                fontSize: "13px",
+                marginBottom: "16px",
+                textAlign: "center",
+                backgroundColor: "rgba(239, 68, 68, 0.1)",
+                padding: "8px",
+                borderRadius: "6px",
+                border: "1px solid rgba(239, 68, 68, 0.2)",
+              }}
+            >
+              {authError}
+            </div>
+          )}
 
           <form onSubmit={authMode === "login" ? handleLogin : handleSignup}>
             {authMode === "signup" && (
               <div className="form-group" style={{ marginBottom: "16px" }}>
-                <label style={{ fontSize: "12px", color: "#8e8d85", marginBottom: "6px", display: "block" }}>Full Name</label>
+                <label
+                  style={{
+                    fontSize: "12px",
+                    color: "#8e8d85",
+                    marginBottom: "6px",
+                    display: "block",
+                  }}
+                >
+                  Full Name
+                </label>
                 <input
                   type="text"
                   className="form-control"
                   placeholder="Your Name"
                   value={name}
-                  onChange={e => setName(e.target.value)}
+                  onChange={(e) => setName(e.target.value)}
                   required
                   style={{
                     backgroundColor: "rgba(15, 23, 42, 0.6)",
@@ -776,19 +998,28 @@ function App() {
                     borderRadius: "8px",
                     padding: "12px 16px",
                     color: "#c3c2b7",
-                    fontSize: "14px"
+                    fontSize: "14px",
                   }}
                 />
               </div>
             )}
             <div className="form-group" style={{ marginBottom: "16px" }}>
-              <label style={{ fontSize: "12px", color: "#8e8d85", marginBottom: "6px", display: "block" }}>Email</label>
+              <label
+                style={{
+                  fontSize: "12px",
+                  color: "#8e8d85",
+                  marginBottom: "6px",
+                  display: "block",
+                }}
+              >
+                Email
+              </label>
               <input
                 type="email"
                 className="form-control"
                 placeholder="you@example.com"
                 value={email}
-                onChange={e => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 required
                 style={{
                   backgroundColor: "rgba(15, 23, 42, 0.6)",
@@ -796,18 +1027,27 @@ function App() {
                   borderRadius: "8px",
                   padding: "12px 16px",
                   color: "#c3c2b7",
-                  fontSize: "14px"
+                  fontSize: "14px",
                 }}
               />
             </div>
             <div className="form-group" style={{ marginBottom: "20px" }}>
-              <label style={{ fontSize: "12px", color: "#8e8d85", marginBottom: "6px", display: "block" }}>Password</label>
+              <label
+                style={{
+                  fontSize: "12px",
+                  color: "#8e8d85",
+                  marginBottom: "6px",
+                  display: "block",
+                }}
+              >
+                Password
+              </label>
               <input
                 type="password"
                 className="form-control"
                 placeholder="••••••••"
                 value={password}
-                onChange={e => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 required
                 style={{
                   backgroundColor: "rgba(15, 23, 42, 0.6)",
@@ -815,7 +1055,7 @@ function App() {
                   borderRadius: "8px",
                   padding: "12px 16px",
                   color: "#c3c2b7",
-                  fontSize: "14px"
+                  fontSize: "14px",
                 }}
               />
             </div>
@@ -833,24 +1073,41 @@ function App() {
                 boxShadow: "0 4px 12px rgba(217, 119, 6, 0.2)",
                 cursor: "pointer",
                 border: "none",
-                transition: "all 0.2s"
+                transition: "all 0.2s",
               }}
             >
               {authMode === "login" ? "Log in" : "Sign up"}
             </button>
-
-
           </form>
 
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "24px", fontSize: "13px" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginTop: "24px",
+              fontSize: "13px",
+            }}
+          >
             <span
-              style={{ color: "#8e8d85", cursor: "pointer", textDecoration: "underline" }}
-              onClick={() => setAuthMode(authMode === "login" ? "signup" : "login")}
+              style={{
+                color: "#8e8d85",
+                cursor: "pointer",
+                textDecoration: "underline",
+              }}
+              onClick={() =>
+                setAuthMode(authMode === "login" ? "signup" : "login")
+              }
             >
-              {authMode === "login" ? "Don't have an account? Sign up" : "Already have an account? Log in"}
+              {authMode === "login"
+                ? "Don't have an account? Sign up"
+                : "Already have an account? Log in"}
             </span>
             {authMode === "login" && (
-              <span style={{ color: "#d97706", cursor: "pointer" }} onClick={handleForgotPassword}>
+              <span
+                style={{ color: "#d97706", cursor: "pointer" }}
+                onClick={handleForgotPassword}
+              >
                 Forgot Password?
               </span>
             )}
@@ -877,14 +1134,26 @@ function App() {
     );
   }
 
-  const filteredAssets = assets.filter(a => {
-    const matchesSearch = a.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  const filteredAssets = assets.filter((a) => {
+    // Standard employees only see their assigned assets and shared/bookable resources
+    const isManager =
+      user.role === "Admin" ||
+      user.role === "Asset Manager" ||
+      user.role === "Department Head";
+    if (!isManager && a.employeeId !== user.id && !a.isBookable) {
+      return false;
+    }
+
+    const matchesSearch =
+      a.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       a.tag.toLowerCase().includes(searchQuery.toLowerCase()) ||
       a.serialNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
       a.location.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCat = categoryFilter ? a.category === categoryFilter : true;
     const matchesStatus = statusFilter ? a.status === statusFilter : true;
-    const matchesLoc = locationFilter ? a.location.toLowerCase().includes(locationFilter.toLowerCase()) : true;
+    const matchesLoc = locationFilter
+      ? a.location.toLowerCase().includes(locationFilter.toLowerCase())
+      : true;
     return matchesSearch && matchesCat && matchesStatus && matchesLoc;
   });
 
@@ -910,58 +1179,97 @@ function App() {
           <span>WhiteRock</span>
         </div>
         <div className="nav-links">
-          <div className={`nav-item ${currentTab === "dashboard" ? "active" : ""}`} onClick={() => setCurrentTab("dashboard")}>
+          <div
+            className={`nav-item ${currentTab === "dashboard" ? "active" : ""}`}
+            onClick={() => setCurrentTab("dashboard")}
+          >
             <LayoutDashboard size={18} />
             <span>Dashboard</span>
           </div>
           {user.role === "Admin" && (
-            <div className={`nav-item ${currentTab === "orgSetup" ? "active" : ""}`} onClick={() => { setCurrentTab("orgSetup"); setOrgSubTab("departments"); }}>
+            <div
+              className={`nav-item ${currentTab === "orgSetup" ? "active" : ""}`}
+              onClick={() => {
+                setCurrentTab("orgSetup");
+                setOrgSubTab("departments");
+              }}
+            >
               <FolderTree size={18} />
               <span>Organization Setup</span>
             </div>
           )}
-          <div className={`nav-item ${currentTab === "assets" ? "active" : ""}`} onClick={() => setCurrentTab("assets")}>
+          <div
+            className={`nav-item ${currentTab === "assets" ? "active" : ""}`}
+            onClick={() => setCurrentTab("assets")}
+          >
             <Package size={18} />
             <span>Assets</span>
           </div>
-          <div className={`nav-item ${currentTab === "allocations" ? "active" : ""}`} onClick={() => setCurrentTab("allocations")}>
+          <div
+            className={`nav-item ${currentTab === "allocations" ? "active" : ""}`}
+            onClick={() => setCurrentTab("allocations")}
+          >
             <ArrowRightLeft size={18} />
             <span>Allocation & Transfer</span>
           </div>
-          <div className={`nav-item ${currentTab === "bookings" ? "active" : ""}`} onClick={() => setCurrentTab("bookings")}>
+          <div
+            className={`nav-item ${currentTab === "bookings" ? "active" : ""}`}
+            onClick={() => setCurrentTab("bookings")}
+          >
             <Calendar size={18} />
             <span>Resource Booking</span>
           </div>
-          <div className={`nav-item ${currentTab === "maintenance" ? "active" : ""}`} onClick={() => setCurrentTab("maintenance")}>
+          <div
+            className={`nav-item ${currentTab === "maintenance" ? "active" : ""}`}
+            onClick={() => setCurrentTab("maintenance")}
+          >
             <Wrench size={18} />
             <span>Maintenance</span>
           </div>
-          <div className={`nav-item ${currentTab === "audits" ? "active" : ""}`} onClick={() => setCurrentTab("audits")}>
+          <div
+            className={`nav-item ${currentTab === "audits" ? "active" : ""}`}
+            onClick={() => setCurrentTab("audits")}
+          >
             <ShieldAlert size={18} />
             <span>Audits</span>
           </div>
           {user.role === "Admin" && (
-            <div className={`nav-item ${currentTab === "reports" ? "active" : ""}`} onClick={() => setCurrentTab("reports")}>
+            <div
+              className={`nav-item ${currentTab === "reports" ? "active" : ""}`}
+              onClick={() => setCurrentTab("reports")}
+            >
               <BarChart3 size={18} />
               <span>Reports</span>
             </div>
           )}
-          <div className={`nav-item ${currentTab === "notifications" ? "active" : ""}`} onClick={() => setCurrentTab("notifications")}>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px", width: "100%" }}>
+          <div
+            className={`nav-item ${currentTab === "notifications" ? "active" : ""}`}
+            onClick={() => setCurrentTab("notifications")}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                width: "100%",
+              }}
+            >
               <Bell size={18} />
               <span>Notifications</span>
-              {notifications.filter(n => !n.read).length > 0 && (
-                <span style={{
-                  background: "#ef4444",
-                  color: "#ffffff",
-                  fontSize: "10px",
-                  fontWeight: "bold",
-                  padding: "1px 5px",
-                  borderRadius: "10px",
-                  marginLeft: "auto",
-                  lineHeight: "1"
-                }}>
-                  {notifications.filter(n => !n.read).length}
+              {notifications.filter((n) => !n.read).length > 0 && (
+                <span
+                  style={{
+                    background: "#ef4444",
+                    color: "#ffffff",
+                    fontSize: "10px",
+                    fontWeight: "bold",
+                    padding: "1px 5px",
+                    borderRadius: "10px",
+                    marginLeft: "auto",
+                    lineHeight: "1",
+                  }}
+                >
+                  {notifications.filter((n) => !n.read).length}
                 </span>
               )}
             </div>
@@ -974,7 +1282,11 @@ function App() {
               <span className="user-name">{user.name}</span>
               <span className="user-role">{user.role}</span>
             </div>
-            <button onClick={handleLogout} className="notification-bell" style={{ border: "none", background: "none" }}>
+            <button
+              onClick={handleLogout}
+              className="notification-bell"
+              style={{ border: "none", background: "none" }}
+            >
               <LogOut size={16} />
             </button>
           </div>
@@ -983,23 +1295,60 @@ function App() {
 
       <div className="main-content">
         <div className="dashboard-header">
-          <h1 className="page-title" style={{ textTransform: "capitalize" }}>{currentTab}</h1>
-          <div style={{ display: "flex", alignItems: "center", gap: "16px", position: "relative" }}>
-            <div className="notification-bell" onClick={() => setShowNotifications(!showNotifications)}>
+          <h1 className="page-title" style={{ textTransform: "capitalize" }}>
+            {currentTab}
+          </h1>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "16px",
+              position: "relative",
+            }}
+          >
+            <div
+              className="notification-bell"
+              onClick={() => setShowNotifications(!showNotifications)}
+            >
               <Bell size={18} />
-              {notifications.filter(n => !n.read).length > 0 && <div className="notification-badge" />}
+              {notifications.filter((n) => !n.read).length > 0 && (
+                <div className="notification-badge" />
+              )}
             </div>
             {showNotifications && (
               <div className="notification-dropdown">
-                <h4 style={{ margin: "0 0 8px 0", fontSize: "14px" }}>Notifications</h4>
-                <div style={{ display: "flex", flexDirection: "column", gap: "8px", maxHeight: "200px", overflowY: "auto" }}>
+                <h4 style={{ margin: "0 0 8px 0", fontSize: "14px" }}>
+                  Notifications
+                </h4>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "8px",
+                    maxHeight: "200px",
+                    overflowY: "auto",
+                  }}
+                >
                   {notifications.length === 0 ? (
-                    <div style={{ fontSize: "12px", color: "var(--text-secondary)" }}>No notifications</div>
+                    <div
+                      style={{
+                        fontSize: "12px",
+                        color: "var(--text-secondary)",
+                      }}
+                    >
+                      No notifications
+                    </div>
                   ) : (
-                    notifications.map(n => (
-                      <div key={n.id} className={`notification-item ${!n.read ? "unread" : ""}`} onClick={() => markNotificationRead(n.id)}>
+                    notifications.map((n) => (
+                      <div
+                        key={n.id}
+                        className={`notification-item ${!n.read ? "unread" : ""}`}
+                        onClick={() => markNotificationRead(n.id)}
+                      >
                         <span>{n.message}</span>
-                        <span className="notification-time">{new Date(n.createdAt).toLocaleTimeString()}</span>
+                        <span className="notification-time">
+                          {new Date(n.createdAt).toLocaleTimeString()}
+                        </span>
                       </div>
                     ))
                   )}
@@ -1011,181 +1360,870 @@ function App() {
 
         {currentTab === "dashboard" && (
           <div>
+            {/* Welcoming Header Banner */}
+            <div
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(217, 119, 6, 0.15) 0%, rgba(30, 30, 31, 0) 100%)",
+                border: "1px solid rgba(217, 119, 6, 0.2)",
+                borderRadius: "12px",
+                padding: "24px",
+                marginBottom: "24px",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                flexWrap: "wrap",
+                gap: "16px",
+              }}
+            >
+              <div>
+                <h2
+                  style={{
+                    fontSize: "24px",
+                    fontWeight: "700",
+                    color: "#ffffff",
+                    margin: 0,
+                  }}
+                >
+                  Welcome back, {user.name} 👋
+                </h2>
+                <p
+                  style={{
+                    color: "#c3c2b7",
+                    fontSize: "14px",
+                    marginTop: "6px",
+                    margin: 0,
+                  }}
+                >
+                  {user.role === "Admin" ||
+                  user.role === "Asset Manager" ||
+                  user.role === "Department Head"
+                    ? `Admin Portal — Monitoring ${assets.length} total organizational assets across ${departments.length} departments.`
+                    : `Employee Portal — You have ${assets.filter((a) => a.employeeId === user.id).length} assets currently allocated to you.`}
+                </p>
+              </div>
+              <div
+                style={{
+                  backgroundColor: "rgba(217, 119, 6, 0.1)",
+                  border: "1px solid #d97706",
+                  color: "#d97706",
+                  padding: "6px 12px",
+                  borderRadius: "20px",
+                  fontSize: "13px",
+                  fontWeight: "600",
+                }}
+              >
+                {user.role}
+              </div>
+            </div>
+
             {/* Overdue Return warning banner */}
             {(() => {
-              const overdueCount = assets.filter(a => a.status === "Allocated" && a.expectedReturnDate && new Date(a.expectedReturnDate) < new Date()).length;
-              if (overdueCount > 0) {
+              const overdueCount = assets.filter(
+                (a) =>
+                  a.status === "Allocated" &&
+                  a.expectedReturnDate &&
+                  new Date(a.expectedReturnDate) < new Date(),
+              ).length;
+              const myOverdueCount = assets.filter(
+                (a) =>
+                  a.employeeId === user.id &&
+                  a.status === "Allocated" &&
+                  a.expectedReturnDate &&
+                  new Date(a.expectedReturnDate) < new Date(),
+              ).length;
+
+              const countToShow =
+                user.role === "Admin" ||
+                user.role === "Asset Manager" ||
+                user.role === "Department Head"
+                  ? overdueCount
+                  : myOverdueCount;
+              if (countToShow > 0) {
                 return (
-                  <div style={{
-                    backgroundColor: "rgba(239, 68, 68, 0.15)",
-                    border: "1px solid #ef4444",
-                    borderRadius: "8px",
-                    padding: "12px 16px",
-                    marginBottom: "20px",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    color: "#ef4444",
-                    fontSize: "14px"
-                  }}>
+                  <div
+                    style={{
+                      backgroundColor: "rgba(239, 68, 68, 0.1)",
+                      border: "1px solid #ef4444",
+                      borderRadius: "8px",
+                      padding: "12px 16px",
+                      marginBottom: "20px",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                      color: "#ef4444",
+                      fontSize: "14px",
+                    }}
+                  >
                     <ShieldAlert size={20} />
-                    <span><strong>{overdueCount} assets overdue for return</strong> - flagged for follow-up</span>
+                    <span>
+                      <strong>
+                        {countToShow} asset{countToShow > 1 ? "s" : ""} overdue
+                        for return
+                      </strong>{" "}
+                      — please verify status immediately.
+                    </span>
                   </div>
                 );
               }
               return null;
             })()}
 
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-              gap: "16px",
-              marginBottom: "24px"
-            }}>
-              {/* 1. Available */}
-              <div className="card kpi-card" style={{ display: "flex", gap: "16px", alignItems: "center", padding: "16px" }}>
-                <div className="kpi-icon-wrapper" style={{ backgroundColor: "#10b981", width: "40px", height: "40px", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Check size={20} style={{ color: "#fff" }} />
-                </div>
-                <div>
-                  <div className="kpi-value" style={{ fontSize: "20px", fontWeight: "bold" }}>{assets.filter(a => a.status === "Available").length}</div>
-                  <div className="kpi-label" style={{ fontSize: "12px", color: "#8e8d85" }}>Available</div>
-                </div>
-              </div>
+            {/* KPI Cards Grid */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+                gap: "16px",
+                marginBottom: "24px",
+              }}
+            >
+              {user.role === "Admin" ||
+              user.role === "Asset Manager" ||
+              user.role === "Department Head" ? (
+                <>
+                  {/* 1. Total Assets */}
+                  <div
+                    className="card kpi-card"
+                    style={{
+                      display: "flex",
+                      gap: "16px",
+                      alignItems: "center",
+                      padding: "18px",
+                      borderLeft: "4px solid #3b82f6",
+                    }}
+                  >
+                    <div
+                      className="kpi-icon-wrapper"
+                      style={{
+                        backgroundColor: "rgba(59, 130, 246, 0.15)",
+                        width: "42px",
+                        height: "42px",
+                        borderRadius: "8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Package size={20} style={{ color: "#3b82f6" }} />
+                    </div>
+                    <div>
+                      <div
+                        className="kpi-value"
+                        style={{
+                          fontSize: "22px",
+                          fontWeight: "bold",
+                          color: "#ffffff",
+                        }}
+                      >
+                        {assets.length}
+                      </div>
+                      <div
+                        className="kpi-label"
+                        style={{
+                          fontSize: "12px",
+                          color: "#8e8d85",
+                          marginTop: "2px",
+                        }}
+                      >
+                        Total Assets
+                      </div>
+                    </div>
+                  </div>
 
-              {/* 2. Allocated */}
-              <div className="card kpi-card" style={{ display: "flex", gap: "16px", alignItems: "center", padding: "16px" }}>
-                <div className="kpi-icon-wrapper" style={{ backgroundColor: "#06b6d4", width: "40px", height: "40px", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <ArrowRightLeft size={20} style={{ color: "#fff" }} />
-                </div>
-                <div>
-                  <div className="kpi-value" style={{ fontSize: "20px", fontWeight: "bold" }}>{assets.filter(a => a.status === "Allocated").length}</div>
-                  <div className="kpi-label" style={{ fontSize: "12px", color: "#8e8d85" }}>Allocated</div>
-                </div>
-              </div>
+                  {/* 2. Available */}
+                  <div
+                    className="card kpi-card"
+                    style={{
+                      display: "flex",
+                      gap: "16px",
+                      alignItems: "center",
+                      padding: "18px",
+                      borderLeft: "4px solid #10b981",
+                    }}
+                  >
+                    <div
+                      className="kpi-icon-wrapper"
+                      style={{
+                        backgroundColor: "rgba(16, 185, 129, 0.15)",
+                        width: "42px",
+                        height: "42px",
+                        borderRadius: "8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Check size={20} style={{ color: "#10b981" }} />
+                    </div>
+                    <div>
+                      <div
+                        className="kpi-value"
+                        style={{
+                          fontSize: "22px",
+                          fontWeight: "bold",
+                          color: "#ffffff",
+                        }}
+                      >
+                        {assets.filter((a) => a.status === "Available").length}
+                      </div>
+                      <div
+                        className="kpi-label"
+                        style={{
+                          fontSize: "12px",
+                          color: "#8e8d85",
+                          marginTop: "2px",
+                        }}
+                      >
+                        Available
+                      </div>
+                    </div>
+                  </div>
 
-              {/* 3. Under Maintenance */}
-              <div className="card kpi-card" style={{ display: "flex", gap: "16px", alignItems: "center", padding: "16px" }}>
-                <div className="kpi-icon-wrapper" style={{ backgroundColor: "#f59e0b", width: "40px", height: "40px", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Wrench size={20} style={{ color: "#fff" }} />
-                </div>
-                <div>
-                  <div className="kpi-value" style={{ fontSize: "20px", fontWeight: "bold" }}>{assets.filter(a => a.status === "Under Maintenance").length}</div>
-                  <div className="kpi-label" style={{ fontSize: "12px", color: "#8e8d85" }}>Under Maintenance</div>
-                </div>
-              </div>
+                  {/* 3. Allocated */}
+                  <div
+                    className="card kpi-card"
+                    style={{
+                      display: "flex",
+                      gap: "16px",
+                      alignItems: "center",
+                      padding: "18px",
+                      borderLeft: "4px solid #06b6d4",
+                    }}
+                  >
+                    <div
+                      className="kpi-icon-wrapper"
+                      style={{
+                        backgroundColor: "rgba(6, 182, 212, 0.15)",
+                        width: "42px",
+                        height: "42px",
+                        borderRadius: "8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <ArrowRightLeft size={20} style={{ color: "#06b6d4" }} />
+                    </div>
+                    <div>
+                      <div
+                        className="kpi-value"
+                        style={{
+                          fontSize: "22px",
+                          fontWeight: "bold",
+                          color: "#ffffff",
+                        }}
+                      >
+                        {assets.filter((a) => a.status === "Allocated").length}
+                      </div>
+                      <div
+                        className="kpi-label"
+                        style={{
+                          fontSize: "12px",
+                          color: "#8e8d85",
+                          marginTop: "2px",
+                        }}
+                      >
+                        Allocated
+                      </div>
+                    </div>
+                  </div>
 
-              {/* 4. Active Bookings */}
-              <div className="card kpi-card" style={{ display: "flex", gap: "16px", alignItems: "center", padding: "16px" }}>
-                <div className="kpi-icon-wrapper" style={{ backgroundColor: "#d97706", width: "40px", height: "40px", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Calendar size={20} style={{ color: "#fff" }} />
-                </div>
-                <div>
-                  <div className="kpi-value" style={{ fontSize: "20px", fontWeight: "bold" }}>{bookings.filter(b => b.status === "Upcoming").length}</div>
-                  <div className="kpi-label" style={{ fontSize: "12px", color: "#8e8d85" }}>Active Bookings</div>
-                </div>
-              </div>
+                  {/* 4. Under Maintenance */}
+                  <div
+                    className="card kpi-card"
+                    style={{
+                      display: "flex",
+                      gap: "16px",
+                      alignItems: "center",
+                      padding: "18px",
+                      borderLeft: "4px solid #f59e0b",
+                    }}
+                  >
+                    <div
+                      className="kpi-icon-wrapper"
+                      style={{
+                        backgroundColor: "rgba(245, 158, 11, 0.15)",
+                        width: "42px",
+                        height: "42px",
+                        borderRadius: "8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Wrench size={20} style={{ color: "#f59e0b" }} />
+                    </div>
+                    <div>
+                      <div
+                        className="kpi-value"
+                        style={{
+                          fontSize: "22px",
+                          fontWeight: "bold",
+                          color: "#ffffff",
+                        }}
+                      >
+                        {
+                          assets.filter((a) => a.status === "Under Maintenance")
+                            .length
+                        }
+                      </div>
+                      <div
+                        className="kpi-label"
+                        style={{
+                          fontSize: "12px",
+                          color: "#8e8d85",
+                          marginTop: "2px",
+                        }}
+                      >
+                        Maintenance
+                      </div>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {/* Employee KPI 1: My Allocated Assets */}
+                  <div
+                    className="card kpi-card"
+                    style={{
+                      display: "flex",
+                      gap: "16px",
+                      alignItems: "center",
+                      padding: "18px",
+                      borderLeft: "4px solid #d97706",
+                    }}
+                  >
+                    <div
+                      className="kpi-icon-wrapper"
+                      style={{
+                        backgroundColor: "rgba(217, 119, 6, 0.15)",
+                        width: "42px",
+                        height: "42px",
+                        borderRadius: "8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Package size={20} style={{ color: "#d97706" }} />
+                    </div>
+                    <div>
+                      <div
+                        className="kpi-value"
+                        style={{
+                          fontSize: "22px",
+                          fontWeight: "bold",
+                          color: "#ffffff",
+                        }}
+                      >
+                        {assets.filter((a) => a.employeeId === user.id).length}
+                      </div>
+                      <div
+                        className="kpi-label"
+                        style={{
+                          fontSize: "12px",
+                          color: "#8e8d85",
+                          marginTop: "2px",
+                        }}
+                      >
+                        My Allocated Assets
+                      </div>
+                    </div>
+                  </div>
 
-              {/* 5. Pending Transfers */}
-              <div className="card kpi-card" style={{ display: "flex", gap: "16px", alignItems: "center", padding: "16px" }}>
-                <div className="kpi-icon-wrapper" style={{ backgroundColor: "#8b5cf6", width: "40px", height: "40px", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <RefreshCw size={20} style={{ color: "#fff" }} />
-                </div>
-                <div>
-                  <div className="kpi-value" style={{ fontSize: "20px", fontWeight: "bold" }}>{transfers.filter(t => t.status === "Requested").length}</div>
-                  <div className="kpi-label" style={{ fontSize: "12px", color: "#8e8d85" }}>Pending Transfers</div>
-                </div>
-              </div>
+                  {/* Employee KPI 2: My Bookings */}
+                  <div
+                    className="card kpi-card"
+                    style={{
+                      display: "flex",
+                      gap: "16px",
+                      alignItems: "center",
+                      padding: "18px",
+                      borderLeft: "4px solid #10b981",
+                    }}
+                  >
+                    <div
+                      className="kpi-icon-wrapper"
+                      style={{
+                        backgroundColor: "rgba(16, 185, 129, 0.15)",
+                        width: "42px",
+                        height: "42px",
+                        borderRadius: "8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Calendar size={20} style={{ color: "#10b981" }} />
+                    </div>
+                    <div>
+                      <div
+                        className="kpi-value"
+                        style={{
+                          fontSize: "22px",
+                          fontWeight: "bold",
+                          color: "#ffffff",
+                        }}
+                      >
+                        {
+                          bookings.filter(
+                            (b) =>
+                              b.employeeId === user.id &&
+                              b.status !== "Cancelled",
+                          ).length
+                        }
+                      </div>
+                      <div
+                        className="kpi-label"
+                        style={{
+                          fontSize: "12px",
+                          color: "#8e8d85",
+                          marginTop: "2px",
+                        }}
+                      >
+                        My Bookings
+                      </div>
+                    </div>
+                  </div>
 
-              {/* 6. Upcoming Returns */}
-              <div className="card kpi-card" style={{ display: "flex", gap: "16px", alignItems: "center", padding: "16px" }}>
-                <div className="kpi-icon-wrapper" style={{ backgroundColor: "#ec4899", width: "40px", height: "40px", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Bell size={20} style={{ color: "#fff" }} />
-                </div>
-                <div>
-                  <div className="kpi-value" style={{ fontSize: "20px", fontWeight: "bold" }}>{assets.filter(a => a.status === "Allocated" && a.expectedReturnDate && new Date(a.expectedReturnDate) >= new Date()).length}</div>
-                  <div className="kpi-label" style={{ fontSize: "12px", color: "#8e8d85" }}>Upcoming Returns</div>
-                </div>
-              </div>
+                  {/* Employee KPI 3: My Maintenance Tickets */}
+                  <div
+                    className="card kpi-card"
+                    style={{
+                      display: "flex",
+                      gap: "16px",
+                      alignItems: "center",
+                      padding: "18px",
+                      borderLeft: "4px solid #f59e0b",
+                    }}
+                  >
+                    <div
+                      className="kpi-icon-wrapper"
+                      style={{
+                        backgroundColor: "rgba(245, 158, 11, 0.15)",
+                        width: "42px",
+                        height: "42px",
+                        borderRadius: "8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Wrench size={20} style={{ color: "#f59e0b" }} />
+                    </div>
+                    <div>
+                      <div
+                        className="kpi-value"
+                        style={{
+                          fontSize: "22px",
+                          fontWeight: "bold",
+                          color: "#ffffff",
+                        }}
+                      >
+                        {
+                          maintenance.filter(
+                            (m) =>
+                              m.employeeId === user.id &&
+                              m.status !== "Resolved" &&
+                              m.status !== "Rejected",
+                          ).length
+                        }
+                      </div>
+                      <div
+                        className="kpi-label"
+                        style={{
+                          fontSize: "12px",
+                          color: "#8e8d85",
+                          marginTop: "2px",
+                        }}
+                      >
+                        Open Tickets
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Employee KPI 4: My Pending Transfers */}
+                  <div
+                    className="card kpi-card"
+                    style={{
+                      display: "flex",
+                      gap: "16px",
+                      alignItems: "center",
+                      padding: "18px",
+                      borderLeft: "4px solid #8b5cf6",
+                    }}
+                  >
+                    <div
+                      className="kpi-icon-wrapper"
+                      style={{
+                        backgroundColor: "rgba(139, 92, 246, 0.15)",
+                        width: "42px",
+                        height: "42px",
+                        borderRadius: "8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <RefreshCw size={20} style={{ color: "#8b5cf6" }} />
+                    </div>
+                    <div>
+                      <div
+                        className="kpi-value"
+                        style={{
+                          fontSize: "22px",
+                          fontWeight: "bold",
+                          color: "#ffffff",
+                        }}
+                      >
+                        {
+                          transfers.filter(
+                            (t) =>
+                              (t.fromEmployeeId === user.id ||
+                                t.toEmployeeId === user.id) &&
+                              t.status === "Requested",
+                          ).length
+                        }
+                      </div>
+                      <div
+                        className="kpi-label"
+                        style={{
+                          fontSize: "12px",
+                          color: "#8e8d85",
+                          marginTop: "2px",
+                        }}
+                      >
+                        Pending Transfers
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
 
-            <div className="dashboard-sections">
+            {/* Dashboard Bottom Section */}
+            <div
+              className="dashboard-sections"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "2fr 1fr",
+                gap: "20px",
+              }}
+            >
+              {/* Left Column: Recent Assets / My Assets */}
               <div className="section-left">
-                <div className="card">
-                  <h3 style={{ marginBottom: "16px" }}>Recent Asset Allocations</h3>
-                  <div className="table-container">
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>Asset Tag</th>
-                          <th>Asset Name</th>
-                          <th>Category</th>
-                          <th>Status</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {assets.slice(0, 5).map(asset => (
-                          <tr key={asset.id}>
-                            <td>{asset.tag}</td>
-                            <td>{asset.name}</td>
-                            <td>{asset.category}</td>
-                            <td>
-                              <span className={`status-badge ${asset.status.toLowerCase().replace(" ", "-")}`}>
-                                {asset.status}
-                              </span>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
+                <div className="card" style={{ padding: "20px" }}>
+                  <h3
+                    style={{
+                      fontSize: "16px",
+                      fontWeight: "600",
+                      marginBottom: "16px",
+                      color: "#ffffff",
+                    }}
+                  >
+                    {user.role === "Admin" ||
+                    user.role === "Asset Manager" ||
+                    user.role === "Department Head"
+                      ? "Recent Asset Inventory"
+                      : "My Assigned Assets"}
+                  </h3>
+
+                  {(() => {
+                    const targetList =
+                      user.role === "Admin" ||
+                      user.role === "Asset Manager" ||
+                      user.role === "Department Head"
+                        ? assets.slice(0, 5)
+                        : assets.filter((a) => a.employeeId === user.id);
+
+                    if (targetList.length === 0) {
+                      return (
+                        <div
+                          style={{
+                            textAlign: "center",
+                            color: "#8e8d85",
+                            padding: "40px 20px",
+                            border: "1.5px dashed rgba(255, 255, 255, 0.05)",
+                            borderRadius: "8px",
+                          }}
+                        >
+                          No assets currently assigned to you.
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <div className="table-container">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>Asset Tag</th>
+                              <th>Asset Name</th>
+                              <th>Category</th>
+                              <th>Status</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {targetList.map((asset) => (
+                              <tr key={asset.id}>
+                                <td
+                                  style={{
+                                    fontFamily: "monospace",
+                                    color: "#d97706",
+                                  }}
+                                >
+                                  {asset.tag}
+                                </td>
+                                <td
+                                  style={{
+                                    color: "#ffffff",
+                                    fontWeight: "500",
+                                  }}
+                                >
+                                  {asset.name}
+                                </td>
+                                <td style={{ color: "#c3c2b7" }}>
+                                  {asset.category}
+                                </td>
+                                <td>
+                                  <span
+                                    className={`status-badge ${asset.status.toLowerCase().replace(" ", "-")}`}
+                                  >
+                                    {asset.status}
+                                  </span>
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    );
+                  })()}
                 </div>
               </div>
 
-              <div className="section-right">
-                <div className="card">
-                  <h3 style={{ marginBottom: "16px" }}>Quick Actions</h3>
-                  <div className="quick-actions">
-                    {(user.role === "Asset Manager" || user.role === "Admin") && (
-                      <button className="btn btn-primary w-full" onClick={() => setActiveModal("addAsset")}>
+              {/* Right Column: Actions & Alerts */}
+              <div
+                className="section-right"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "20px",
+                }}
+              >
+                <div className="card" style={{ padding: "20px" }}>
+                  <h3
+                    style={{
+                      fontSize: "16px",
+                      fontWeight: "600",
+                      marginBottom: "16px",
+                      color: "#ffffff",
+                    }}
+                  >
+                    Quick Portal Actions
+                  </h3>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "10px",
+                    }}
+                  >
+                    {(user.role === "Admin" ||
+                      user.role === "Asset Manager" ||
+                      user.role === "Department Head") && (
+                      <button
+                        className="btn btn-primary w-full"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          gap: "8px",
+                          padding: "10px",
+                          fontWeight: "600",
+                        }}
+                        onClick={() => setActiveModal("addAsset")}
+                      >
                         <Plus size={16} /> Register New Asset
                       </button>
                     )}
-                    <button className="btn btn-secondary w-full" onClick={() => setCurrentTab("bookings")}>
+                    <button
+                      className="btn btn-secondary w-full"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "8px",
+                        padding: "10px",
+                        backgroundColor: "rgba(255, 255, 255, 0.04)",
+                        border: "1px solid rgba(255, 255, 255, 0.08)",
+                        color: "#ffffff",
+                      }}
+                      onClick={() => setCurrentTab("bookings")}
+                    >
                       <Calendar size={16} /> Book Shared Resource
                     </button>
-                    <button className="btn btn-secondary w-full" onClick={() => {
-                      setMaintenanceForm({ assetId: assets[0]?.id || "", description: "", priority: "Medium" });
-                      setActiveModal("requestMaintenance");
-                    }}>
+                    <button
+                      className="btn btn-secondary w-full"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "8px",
+                        padding: "10px",
+                        backgroundColor: "rgba(255, 255, 255, 0.04)",
+                        border: "1px solid rgba(255, 255, 255, 0.08)",
+                        color: "#ffffff",
+                      }}
+                      onClick={() => {
+                        const userAssets = assets.filter(
+                          (a) => a.employeeId === user.id,
+                        );
+                        setMaintenanceForm({
+                          assetId: userAssets[0]?.id || assets[0]?.id || "",
+                          description: "",
+                          priority: "Medium",
+                        });
+                        setActiveModal("requestMaintenance");
+                      }}
+                    >
                       <Wrench size={16} /> Request Maintenance
                     </button>
                     {user.role === "Admin" && (
-                      <button className="btn btn-secondary w-full" onClick={() => setActiveModal("addAudit")}>
-                        <ShieldAlert size={16} /> Schedule Audit
+                      <button
+                        className="btn btn-secondary w-full"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          gap: "8px",
+                          padding: "10px",
+                          backgroundColor: "rgba(255, 255, 255, 0.04)",
+                          border: "1px solid rgba(255, 255, 255, 0.08)",
+                          color: "#ffffff",
+                        }}
+                        onClick={() => setActiveModal("addAudit")}
+                      >
+                        <ShieldAlert size={16} /> Schedule Audit Cycle
                       </button>
                     )}
                   </div>
                 </div>
 
-                <div className="card" style={{ borderLeft: "4px solid #f59e0b" }}>
-                  <h3 style={{ marginBottom: "12px", color: "#f59e0b", display: "flex", alignItems: "center", gap: "8px" }}>
-                    <ShieldAlert size={20} /> Active Alerts
+                <div
+                  className="card"
+                  style={{ padding: "20px", borderLeft: "4px solid #f59e0b" }}
+                >
+                  <h3
+                    style={{
+                      fontSize: "16px",
+                      fontWeight: "600",
+                      marginBottom: "12px",
+                      color: "#f59e0b",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                    }}
+                  >
+                    <ShieldAlert size={18} /> Active Notifications
                   </h3>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                    {assets.filter(a => a.status === "Allocated" && a.expectedReturnDate && new Date(a.expectedReturnDate) < new Date()).map(a => (
-                      <div key={a.id} style={{ fontSize: "13px" }}>
-                        <strong>Overdue:</strong> {a.name} ({a.tag}) was expected on {a.expectedReturnDate}.
-                      </div>
-                    ))}
-                    {assets.filter(a => a.status === "Allocated" && a.expectedReturnDate && new Date(a.expectedReturnDate) >= new Date() && (new Date(a.expectedReturnDate) - new Date()) / (1000 * 60 * 60 * 24) <= 3).map(a => (
-                      <div key={a.id} style={{ fontSize: "13px" }}>
-                        <strong>Return Upcoming:</strong> {a.name} ({a.tag}) due soon ({a.expectedReturnDate}).
-                      </div>
-                    ))}
-                    {assets.filter(a => a.status === "Allocated" && a.expectedReturnDate).length === 0 && (
-                      <span style={{ fontSize: "13px", color: "#8e8d85" }}>No alerts at the moment.</span>
-                    )}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "12px",
+                    }}
+                  >
+                    {(() => {
+                      const isManager =
+                        user.role === "Admin" ||
+                        user.role === "Asset Manager" ||
+                        user.role === "Department Head";
+                      const alertAssets = isManager
+                        ? assets.filter(
+                            (a) =>
+                              a.status === "Allocated" &&
+                              a.expectedReturnDate &&
+                              new Date(a.expectedReturnDate) < new Date(),
+                          )
+                        : assets.filter(
+                            (a) =>
+                              a.employeeId === user.id &&
+                              a.status === "Allocated" &&
+                              a.expectedReturnDate &&
+                              new Date(a.expectedReturnDate) < new Date(),
+                          );
+
+                      const upcomingAssets = isManager
+                        ? assets.filter(
+                            (a) =>
+                              a.status === "Allocated" &&
+                              a.expectedReturnDate &&
+                              new Date(a.expectedReturnDate) >= new Date() &&
+                              (new Date(a.expectedReturnDate) - new Date()) /
+                                (1000 * 60 * 60 * 24) <=
+                                3,
+                          )
+                        : assets.filter(
+                            (a) =>
+                              a.employeeId === user.id &&
+                              a.status === "Allocated" &&
+                              a.expectedReturnDate &&
+                              new Date(a.expectedReturnDate) >= new Date() &&
+                              (new Date(a.expectedReturnDate) - new Date()) /
+                                (1000 * 60 * 60 * 24) <=
+                                3,
+                          );
+
+                      if (
+                        alertAssets.length === 0 &&
+                        upcomingAssets.length === 0
+                      ) {
+                        return (
+                          <span style={{ fontSize: "13px", color: "#8e8d85" }}>
+                            No urgent notifications.
+                          </span>
+                        );
+                      }
+
+                      return (
+                        <>
+                          {alertAssets.map((a) => (
+                            <div
+                              key={a.id}
+                              style={{
+                                fontSize: "13px",
+                                color: "#ef4444",
+                                backgroundColor: "rgba(239, 68, 68, 0.05)",
+                                padding: "8px",
+                                borderRadius: "4px",
+                                border: "1px solid rgba(239, 68, 68, 0.1)",
+                              }}
+                            >
+                              <strong>Overdue:</strong> {a.name} ({a.tag}) was
+                              due on {a.expectedReturnDate}.
+                            </div>
+                          ))}
+                          {upcomingAssets.map((a) => (
+                            <div
+                              key={a.id}
+                              style={{
+                                fontSize: "13px",
+                                color: "#f59e0b",
+                                backgroundColor: "rgba(245, 158, 11, 0.05)",
+                                padding: "8px",
+                                borderRadius: "4px",
+                                border: "1px solid rgba(245, 158, 11, 0.1)",
+                              }}
+                            >
+                              <strong>Due soon:</strong> {a.name} ({a.tag}) is
+                              due on {a.expectedReturnDate}.
+                            </div>
+                          ))}
+                        </>
+                      );
+                    })()}
                   </div>
                 </div>
               </div>
@@ -1197,44 +2235,97 @@ function App() {
           <div>
             <div className="card">
               {/* Internal Tab Bar */}
-              <div style={{ display: "flex", borderBottom: "1px solid rgba(255, 255, 255, 0.08)", marginBottom: "20px", gap: "24px" }}>
-                <button style={{
-                  padding: "10px 0",
-                  background: "none",
-                  border: "none",
-                  borderBottom: orgSubTab === "departments" ? "2px solid #d97706" : "2px solid transparent",
-                  color: orgSubTab === "departments" ? "#d97706" : "#8e8d85",
-                  cursor: "pointer",
-                  fontWeight: orgSubTab === "departments" ? "bold" : "normal"
-                }} onClick={() => setOrgSubTab("departments")}>Departments</button>
+              <div
+                style={{
+                  display: "flex",
+                  borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+                  marginBottom: "20px",
+                  gap: "24px",
+                }}
+              >
+                <button
+                  style={{
+                    padding: "10px 0",
+                    background: "none",
+                    border: "none",
+                    borderBottom:
+                      orgSubTab === "departments"
+                        ? "2px solid #d97706"
+                        : "2px solid transparent",
+                    color: orgSubTab === "departments" ? "#d97706" : "#8e8d85",
+                    cursor: "pointer",
+                    fontWeight: orgSubTab === "departments" ? "bold" : "normal",
+                  }}
+                  onClick={() => setOrgSubTab("departments")}
+                >
+                  Departments
+                </button>
 
-                <button style={{
-                  padding: "10px 0",
-                  background: "none",
-                  border: "none",
-                  borderBottom: orgSubTab === "categories" ? "2px solid #d97706" : "2px solid transparent",
-                  color: orgSubTab === "categories" ? "#d97706" : "#8e8d85",
-                  cursor: "pointer",
-                  fontWeight: orgSubTab === "categories" ? "bold" : "normal"
-                }} onClick={() => setOrgSubTab("categories")}>Categories</button>
+                <button
+                  style={{
+                    padding: "10px 0",
+                    background: "none",
+                    border: "none",
+                    borderBottom:
+                      orgSubTab === "categories"
+                        ? "2px solid #d97706"
+                        : "2px solid transparent",
+                    color: orgSubTab === "categories" ? "#d97706" : "#8e8d85",
+                    cursor: "pointer",
+                    fontWeight: orgSubTab === "categories" ? "bold" : "normal",
+                  }}
+                  onClick={() => setOrgSubTab("categories")}
+                >
+                  Categories
+                </button>
 
-                <button style={{
-                  padding: "10px 0",
-                  background: "none",
-                  border: "none",
-                  borderBottom: orgSubTab === "employees" ? "2px solid #d97706" : "2px solid transparent",
-                  color: orgSubTab === "employees" ? "#d97706" : "#8e8d85",
-                  cursor: "pointer",
-                  fontWeight: orgSubTab === "employees" ? "bold" : "normal"
-                }} onClick={() => setOrgSubTab("employees")}>Employee</button>
+                <button
+                  style={{
+                    padding: "10px 0",
+                    background: "none",
+                    border: "none",
+                    borderBottom:
+                      orgSubTab === "employees"
+                        ? "2px solid #d97706"
+                        : "2px solid transparent",
+                    color: orgSubTab === "employees" ? "#d97706" : "#8e8d85",
+                    cursor: "pointer",
+                    fontWeight: orgSubTab === "employees" ? "bold" : "normal",
+                  }}
+                  onClick={() => setOrgSubTab("employees")}
+                >
+                  Employee
+                </button>
 
-                <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: "8px", paddingBottom: "4px" }}>
-                  <button className="btn btn-primary" style={{ padding: "6px 12px", fontSize: "13px" }} onClick={() => {
-                    if (orgSubTab === "departments") setActiveModal("addDept");
-                    else if (orgSubTab === "categories") setActiveModal("addCat");
-                    else alert("Admin roles can be assigned by modifying the role dropdown in the Employee list below.");
-                  }}>
-                    <Plus size={14} /> Add {orgSubTab === "departments" ? "Department" : orgSubTab === "categories" ? "Category" : "Role"}
+                <div
+                  style={{
+                    marginLeft: "auto",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    paddingBottom: "4px",
+                  }}
+                >
+                  <button
+                    className="btn btn-primary"
+                    style={{ padding: "6px 12px", fontSize: "13px" }}
+                    onClick={() => {
+                      if (orgSubTab === "departments")
+                        setActiveModal("addDept");
+                      else if (orgSubTab === "categories")
+                        setActiveModal("addCat");
+                      else
+                        alert(
+                          "Admin roles can be assigned by modifying the role dropdown in the Employee list below.",
+                        );
+                    }}
+                  >
+                    <Plus size={14} /> Add{" "}
+                    {orgSubTab === "departments"
+                      ? "Department"
+                      : orgSubTab === "categories"
+                        ? "Category"
+                        : "Role"}
                   </button>
                 </div>
               </div>
@@ -1253,21 +2344,31 @@ function App() {
                       </tr>
                     </thead>
                     <tbody>
-                      {departments.map(dept => {
-                        const parent = departments.find(d => d.id === dept.parentId);
-                        const head = employees.find(e => e.id === dept.headId);
+                      {departments.map((dept) => {
+                        const parent = departments.find(
+                          (d) => d.id === dept.parentId,
+                        );
+                        const head = employees.find(
+                          (e) => e.id === dept.headId,
+                        );
                         return (
                           <tr key={dept.id}>
                             <td>{dept.name}</td>
                             <td>{parent ? parent.name : "None"}</td>
                             <td>{head ? head.name : "None"}</td>
                             <td>
-                              <span className={`status-badge ${dept.status === "Active" ? "active" : "inactive"}`}>
+                              <span
+                                className={`status-badge ${dept.status === "Active" ? "active" : "inactive"}`}
+                              >
                                 {dept.status}
                               </span>
                             </td>
                             <td>
-                              <button className="btn btn-secondary" style={{ padding: "4px 8px", fontSize: "12px" }} onClick={() => toggleDeptStatus(dept)}>
+                              <button
+                                className="btn btn-secondary"
+                                style={{ padding: "4px 8px", fontSize: "12px" }}
+                                onClick={() => toggleDeptStatus(dept)}
+                              >
                                 Toggle Status
                               </button>
                             </td>
@@ -1290,12 +2391,21 @@ function App() {
                       </tr>
                     </thead>
                     <tbody>
-                      {categories.map(cat => (
+                      {categories.map((cat) => (
                         <tr key={cat.id}>
                           <td>{cat.name}</td>
                           <td>
                             {cat.fields.map((f, idx) => (
-                              <span key={idx} style={{ marginRight: "8px", padding: "2px 6px", backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "4px", fontSize: "12px" }}>
+                              <span
+                                key={idx}
+                                style={{
+                                  marginRight: "8px",
+                                  padding: "2px 6px",
+                                  backgroundColor: "rgba(255,255,255,0.05)",
+                                  borderRadius: "4px",
+                                  fontSize: "12px",
+                                }}
+                              >
                                 {f}
                               </span>
                             ))}
@@ -1322,39 +2432,74 @@ function App() {
                       </tr>
                     </thead>
                     <tbody>
-                      {employees.map(emp => {
-                        const dept = departments.find(d => d.id === emp.departmentId);
+                      {employees.map((emp) => {
+                        const dept = departments.find(
+                          (d) => d.id === emp.departmentId,
+                        );
                         return (
                           <tr key={emp.id}>
                             <td>{emp.name}</td>
                             <td>{emp.email}</td>
                             <td>
-                              <select className="form-control" style={{ padding: "4px 8px" }} value={emp.departmentId} onChange={e => updateEmployeeDept(emp.id, e.target.value)}>
+                              <select
+                                className="form-control"
+                                style={{ padding: "4px 8px" }}
+                                value={emp.departmentId}
+                                onChange={(e) =>
+                                  updateEmployeeDept(emp.id, e.target.value)
+                                }
+                              >
                                 <option value="">No Department</option>
-                                {departments.map(d => (
-                                  <option key={d.id} value={d.id}>{d.name}</option>
+                                {departments.map((d) => (
+                                  <option key={d.id} value={d.id}>
+                                    {d.name}
+                                  </option>
                                 ))}
                               </select>
                             </td>
                             <td>
-                              <select className="form-control" style={{ padding: "4px 8px" }} value={emp.role} onChange={e => updateEmployeeRole(emp.id, e.target.value)}>
+                              <select
+                                className="form-control"
+                                style={{ padding: "4px 8px" }}
+                                value={emp.role}
+                                onChange={(e) =>
+                                  updateEmployeeRole(emp.id, e.target.value)
+                                }
+                              >
                                 <option value="Employee">Employee</option>
-                                <option value="Department Head">Department Head</option>
-                                <option value="Asset Manager">Asset Manager</option>
+                                <option value="Department Head">
+                                  Department Head
+                                </option>
+                                <option value="Asset Manager">
+                                  Asset Manager
+                                </option>
                                 <option value="Admin">Admin</option>
                               </select>
                             </td>
                             <td>
-                              <span className={`status-badge ${emp.status === "Active" ? "active" : "inactive"}`}>
+                              <span
+                                className={`status-badge ${emp.status === "Active" ? "active" : "inactive"}`}
+                              >
                                 {emp.status}
                               </span>
                             </td>
                             <td>
-                              <button className="btn btn-secondary" style={{ padding: "4px 8px", fontSize: "12px" }} onClick={async () => {
-                                const newStatus = emp.status === "Active" ? "Inactive" : "Active";
-                                await apiRequest(`/employees/${emp.id}/role`, "PUT", { status: newStatus });
-                                loadData();
-                              }}>
+                              <button
+                                className="btn btn-secondary"
+                                style={{ padding: "4px 8px", fontSize: "12px" }}
+                                onClick={async () => {
+                                  const newStatus =
+                                    emp.status === "Active"
+                                      ? "Inactive"
+                                      : "Active";
+                                  await apiRequest(
+                                    `/employees/${emp.id}/role`,
+                                    "PUT",
+                                    { status: newStatus },
+                                  );
+                                  loadData();
+                                }}
+                              >
                                 Toggle Status
                               </button>
                             </td>
@@ -1374,12 +2519,30 @@ function App() {
             <div className="card mb-4">
               <h3>Search & Filters</h3>
               <div className="search-bar mt-4">
-                <input type="text" className="form-control" placeholder="Search by name, tag, location, serial number..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />
-                <select className="form-control" value={categoryFilter} onChange={e => setCategoryFilter(e.target.value)}>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Search by name, tag, location, serial number..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <select
+                  className="form-control"
+                  value={categoryFilter}
+                  onChange={(e) => setCategoryFilter(e.target.value)}
+                >
                   <option value="">All Categories</option>
-                  {categories.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
+                  {categories.map((c) => (
+                    <option key={c.id} value={c.name}>
+                      {c.name}
+                    </option>
+                  ))}
                 </select>
-                <select className="form-control" value={statusFilter} onChange={e => setStatusFilter(e.target.value)}>
+                <select
+                  className="form-control"
+                  value={statusFilter}
+                  onChange={(e) => setStatusFilter(e.target.value)}
+                >
                   <option value="">All Statuses</option>
                   <option value="Available">Available</option>
                   <option value="Allocated">Allocated</option>
@@ -1389,7 +2552,13 @@ function App() {
                   <option value="Retired">Retired</option>
                   <option value="Disposed">Disposed</option>
                 </select>
-                <input type="text" className="form-control" placeholder="Filter by location..." value={locationFilter} onChange={e => setLocationFilter(e.target.value)} />
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Filter by location..."
+                  value={locationFilter}
+                  onChange={(e) => setLocationFilter(e.target.value)}
+                />
               </div>
             </div>
 
@@ -1397,7 +2566,10 @@ function App() {
               <div className="flex-between mb-4">
                 <h3>Asset Directory</h3>
                 {(user.role === "Asset Manager" || user.role === "Admin") && (
-                  <button className="btn btn-primary" onClick={() => setActiveModal("addAsset")}>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => setActiveModal("addAsset")}
+                  >
                     <Plus size={16} /> Register Asset
                   </button>
                 )}
@@ -1417,8 +2589,10 @@ function App() {
                     </tr>
                   </thead>
                   <tbody>
-                    {filteredAssets.map(asset => {
-                      const holder = employees.find(e => e.id === asset.employeeId);
+                    {filteredAssets.map((asset) => {
+                      const holder = employees.find(
+                        (e) => e.id === asset.employeeId,
+                      );
                       return (
                         <tr key={asset.id}>
                           <td>{asset.tag}</td>
@@ -1427,56 +2601,92 @@ function App() {
                           <td>{asset.condition}</td>
                           <td>{asset.location}</td>
                           <td>
-                            <span className={`status-badge ${asset.status.toLowerCase().replace(" ", "-")}`}>
+                            <span
+                              className={`status-badge ${asset.status.toLowerCase().replace(" ", "-")}`}
+                            >
                               {asset.status}
                             </span>
                           </td>
                           <td style={{ fontSize: "12px" }}>
                             {holder && <div>Holder: {holder.name}</div>}
-                            {asset.expectedReturnDate && <div>Due: {asset.expectedReturnDate}</div>}
+                            {asset.expectedReturnDate && (
+                              <div>Due: {asset.expectedReturnDate}</div>
+                            )}
                           </td>
                           <td>
                             <div style={{ display: "flex", gap: "8px" }}>
-                              {asset.status === "Available" && (user.role === "Asset Manager" || user.role === "Admin") && (
-                                <button className="btn btn-primary" style={{ padding: "4px 8px", fontSize: "12px" }} onClick={() => {
-                                  setSelectedAsset(asset);
-                                  setActiveModal("allocate");
-                                }}>
-                                  Allocate
-                                </button>
-                              )}
-                              {asset.status === "Allocated" && asset.employeeId === user.id && (
-                                <button className="btn btn-secondary" style={{ padding: "4px 8px", fontSize: "12px" }} onClick={() => {
-                                  setSelectedAsset(asset);
-                                  setActiveModal("return");
-                                }}>
-                                  Return
-                                </button>
-                              )}
+                              {asset.status === "Available" &&
+                                (user.role === "Asset Manager" ||
+                                  user.role === "Admin") && (
+                                  <button
+                                    className="btn btn-primary"
+                                    style={{
+                                      padding: "4px 8px",
+                                      fontSize: "12px",
+                                    }}
+                                    onClick={() => {
+                                      setSelectedAsset(asset);
+                                      setActiveModal("allocate");
+                                    }}
+                                  >
+                                    Allocate
+                                  </button>
+                                )}
+                              {asset.status === "Allocated" &&
+                                asset.employeeId === user.id && (
+                                  <button
+                                    className="btn btn-secondary"
+                                    style={{
+                                      padding: "4px 8px",
+                                      fontSize: "12px",
+                                    }}
+                                    onClick={() => {
+                                      setSelectedAsset(asset);
+                                      setActiveModal("return");
+                                    }}
+                                  >
+                                    Return
+                                  </button>
+                                )}
                               {asset.status === "Allocated" && (
-                                <button className="btn btn-secondary" style={{ padding: "4px 8px", fontSize: "12px" }} onClick={() => {
-                                  setSelectedAsset(asset);
-                                  setActiveModal("transfer");
-                                }}>
+                                <button
+                                  className="btn btn-secondary"
+                                  style={{
+                                    padding: "4px 8px",
+                                    fontSize: "12px",
+                                  }}
+                                  onClick={() => {
+                                    setSelectedAsset(asset);
+                                    setActiveModal("transfer");
+                                  }}
+                                >
                                   Transfer
                                 </button>
                               )}
-                              {user.role === "Asset Manager" || user.role === "Admin" ? (
-                                <button className="btn btn-secondary" style={{ padding: "4px 8px", fontSize: "12px" }} onClick={() => {
-                                  setSelectedAsset(asset);
-                                  setAssetForm({
-                                    name: asset.name,
-                                    category: asset.category,
-                                    serialNumber: asset.serialNumber,
-                                    acquisitionDate: asset.acquisitionDate,
-                                    acquisitionCost: asset.acquisitionCost,
-                                    condition: asset.condition,
-                                    location: asset.location,
-                                    isBookable: asset.isBookable,
-                                    customFields: asset.customFields
-                                  });
-                                  setActiveModal("editAsset");
-                                }}>
+                              {user.role === "Asset Manager" ||
+                              user.role === "Admin" ? (
+                                <button
+                                  className="btn btn-secondary"
+                                  style={{
+                                    padding: "4px 8px",
+                                    fontSize: "12px",
+                                  }}
+                                  onClick={() => {
+                                    setSelectedAsset(asset);
+                                    setAssetForm({
+                                      name: asset.name,
+                                      category: asset.category,
+                                      serialNumber: asset.serialNumber,
+                                      acquisitionDate: asset.acquisitionDate,
+                                      acquisitionCost: asset.acquisitionCost,
+                                      condition: asset.condition,
+                                      location: asset.location,
+                                      isBookable: asset.isBookable,
+                                      customFields: asset.customFields,
+                                    });
+                                    setActiveModal("editAsset");
+                                  }}
+                                >
                                   Edit
                                 </button>
                               ) : null}
@@ -1496,12 +2706,23 @@ function App() {
           <div>
             <div className="card mb-4">
               <h3>Asset Allocation & Transfer</h3>
-              <p style={{ color: "#8e8d85", fontSize: "14px", marginTop: "4px" }}>
-                Select an asset below to allocate it to an employee or initiate a transfer request if it's already allocated.
+              <p
+                style={{ color: "#8e8d85", fontSize: "14px", marginTop: "4px" }}
+              >
+                Select an asset below to allocate it to an employee or initiate
+                a transfer request if it's already allocated.
               </p>
 
               <div style={{ marginTop: "20px" }}>
-                <label style={{ display: "block", marginBottom: "8px", fontWeight: "bold" }}>Select Asset</label>
+                <label
+                  style={{
+                    display: "block",
+                    marginBottom: "8px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Select Asset
+                </label>
                 <CustomSelect
                   value={selectedAllocAssetId}
                   onChange={(val) => {
@@ -1509,9 +2730,9 @@ function App() {
                     setTransferTargetEmployeeId("");
                     setTransferReason("");
                   }}
-                  options={assets.map(a => ({
+                  options={assets.map((a) => ({
                     value: a.id,
-                    label: `${a.name} (${a.tag}) - Status: ${a.status} ${a.employeeId ? `(Held by: ${employees.find(emp => emp.id === a.employeeId)?.name || 'Unknown'})` : ''}`
+                    label: `${a.name} (${a.tag}) - Status: ${a.status} ${a.employeeId ? `(Held by: ${employees.find((emp) => emp.id === a.employeeId)?.name || "Unknown"})` : ""}`,
                   }))}
                   placeholder="-- Choose an Asset --"
                 />
@@ -1519,46 +2740,75 @@ function App() {
             </div>
 
             {(() => {
-              const selectedAssetItem = assets.find(a => a.id === selectedAllocAssetId);
+              const selectedAssetItem = assets.find(
+                (a) => a.id === selectedAllocAssetId,
+              );
               if (!selectedAssetItem) return null;
 
               if (selectedAssetItem.status === "Allocated") {
-                const holder = employees.find(e => e.id === selectedAssetItem.employeeId);
-                const dept = departments.find(d => d.id === selectedAssetItem.departmentId);
+                const holder = employees.find(
+                  (e) => e.id === selectedAssetItem.employeeId,
+                );
+                const dept = departments.find(
+                  (d) => d.id === selectedAssetItem.departmentId,
+                );
                 return (
-                  <div className="card mb-4" style={{ borderLeft: "4px solid #ef4444" }}>
-                    <div style={{
-                      backgroundColor: "rgba(239, 68, 68, 0.1)",
-                      border: "1px solid #ef4444",
-                      borderRadius: "8px",
-                      padding: "16px",
-                      color: "#ef4444",
-                      marginBottom: "20px",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "12px"
-                    }}>
+                  <div
+                    className="card mb-4"
+                    style={{ borderLeft: "4px solid #ef4444" }}
+                  >
+                    <div
+                      style={{
+                        backgroundColor: "rgba(239, 68, 68, 0.1)",
+                        border: "1px solid #ef4444",
+                        borderRadius: "8px",
+                        padding: "16px",
+                        color: "#ef4444",
+                        marginBottom: "20px",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "12px",
+                      }}
+                    >
                       <ShieldAlert size={24} />
                       <div>
-                        <strong>Already Allocated:</strong> This asset is currently assigned to <strong>{holder ? holder.name : "Unknown Employee"}</strong> ({dept ? dept.name : "No Department"}). Direct re-allocation is blocked. Submit a transfer request below.
+                        <strong>Already Allocated:</strong> This asset is
+                        currently assigned to{" "}
+                        <strong>
+                          {holder ? holder.name : "Unknown Employee"}
+                        </strong>{" "}
+                        ({dept ? dept.name : "No Department"}). Direct
+                        re-allocation is blocked. Submit a transfer request
+                        below.
                       </div>
                     </div>
 
                     <form onSubmit={inlineRequestTransfer}>
-                      <h4 style={{ marginBottom: "16px" }}>Submit Transfer Request</h4>
+                      <h4 style={{ marginBottom: "16px" }}>
+                        Submit Transfer Request
+                      </h4>
                       <div className="form-group">
                         <label>From (Current Holder)</label>
-                        <input type="text" className="form-control" value={holder ? holder.name : "Unknown Employee"} disabled />
+                        <input
+                          type="text"
+                          className="form-control"
+                          value={holder ? holder.name : "Unknown Employee"}
+                          disabled
+                        />
                       </div>
                       <div className="form-group">
                         <label>To (Target Employee)</label>
                         <CustomSelect
                           value={transferTargetEmployeeId}
-                          onChange={val => setTransferTargetEmployeeId(val)}
-                          options={employees.filter(e => e.id !== selectedAssetItem.employeeId).map(e => ({
-                            value: e.id,
-                            label: `${e.name} (${e.email})`
-                          }))}
+                          onChange={(val) => setTransferTargetEmployeeId(val)}
+                          options={employees
+                            .filter(
+                              (e) => e.id !== selectedAssetItem.employeeId,
+                            )
+                            .map((e) => ({
+                              value: e.id,
+                              label: `${e.name} (${e.email})`,
+                            }))}
                           placeholder="-- Select Target Employee --"
                         />
                       </div>
@@ -1569,7 +2819,7 @@ function App() {
                           rows="3"
                           placeholder="Please provide details for the transfer..."
                           value={transferReason}
-                          onChange={e => setTransferReason(e.target.value)}
+                          onChange={(e) => setTransferReason(e.target.value)}
                           required
                         />
                       </div>
@@ -1583,17 +2833,25 @@ function App() {
 
               if (selectedAssetItem.status === "Available") {
                 return (
-                  <div className="card mb-4" style={{ borderLeft: "4px solid #10b981" }}>
+                  <div
+                    className="card mb-4"
+                    style={{ borderLeft: "4px solid #10b981" }}
+                  >
                     <form onSubmit={inlineAllocateAsset}>
                       <h4 style={{ marginBottom: "16px" }}>Allocate Asset</h4>
                       <div className="form-group">
                         <label>Employee</label>
                         <CustomSelect
                           value={allocateForm.employeeId}
-                          onChange={val => setAllocateForm({ ...allocateForm, employeeId: val })}
-                          options={employees.map(e => ({
+                          onChange={(val) =>
+                            setAllocateForm({
+                              ...allocateForm,
+                              employeeId: val,
+                            })
+                          }
+                          options={employees.map((e) => ({
                             value: e.id,
-                            label: `${e.name} (${e.email})`
+                            label: `${e.name} (${e.email})`,
                           }))}
                           placeholder="-- Select Employee --"
                         />
@@ -1602,10 +2860,15 @@ function App() {
                         <label>Department</label>
                         <CustomSelect
                           value={allocateForm.departmentId}
-                          onChange={val => setAllocateForm({ ...allocateForm, departmentId: val })}
-                          options={departments.map(d => ({
+                          onChange={(val) =>
+                            setAllocateForm({
+                              ...allocateForm,
+                              departmentId: val,
+                            })
+                          }
+                          options={departments.map((d) => ({
                             value: d.id,
-                            label: d.name
+                            label: d.name,
                           }))}
                           placeholder="-- Select Department --"
                         />
@@ -1616,7 +2879,12 @@ function App() {
                           type="date"
                           className="form-control"
                           value={allocateForm.expectedReturnDate}
-                          onChange={e => setAllocateForm({ ...allocateForm, expectedReturnDate: e.target.value })}
+                          onChange={(e) =>
+                            setAllocateForm({
+                              ...allocateForm,
+                              expectedReturnDate: e.target.value,
+                            })
+                          }
                           required
                         />
                       </div>
@@ -1631,7 +2899,9 @@ function App() {
               return (
                 <div className="card mb-4">
                   <p style={{ color: "#ef4444" }}>
-                    This asset status is currently <strong>{selectedAssetItem.status}</strong> and cannot be allocated or transferred.
+                    This asset status is currently{" "}
+                    <strong>{selectedAssetItem.status}</strong> and cannot be
+                    allocated or transferred.
                   </p>
                 </div>
               );
@@ -1654,55 +2924,110 @@ function App() {
                     </thead>
                     <tbody>
                       {/* Active Allocations */}
-                      {allocations.filter(al => al.assetId === selectedAllocAssetId).map(al => {
-                        const emp = employees.find(e => e.id === al.employeeId);
-                        return (
-                          <tr key={al.id}>
-                            <td>{al.allocatedAt}</td>
-                            <td>Allocation</td>
-                            <td>Allocated to {emp ? emp.name : "Employee"} (Due: {al.expectedReturnDate || "N/A"})</td>
-                            <td>
-                              <span className={`status-badge ${al.status.toLowerCase()}`}>{al.status}</span>
-                            </td>
-                            <td>
-                              {al.status === "Active" && (
-                                <button className="btn btn-secondary" style={{ padding: "4px 8px", fontSize: "12px" }} onClick={() => {
-                                  setSelectedAsset(assets.find(a => a.id === selectedAllocAssetId));
-                                  setActiveModal("return");
-                                }}>
-                                  Return Asset
-                                </button>
-                              )}
-                            </td>
-                          </tr>
-                        );
-                      })}
+                      {allocations
+                        .filter((al) => al.assetId === selectedAllocAssetId)
+                        .map((al) => {
+                          const emp = employees.find(
+                            (e) => e.id === al.employeeId,
+                          );
+                          return (
+                            <tr key={al.id}>
+                              <td>{al.allocatedAt}</td>
+                              <td>Allocation</td>
+                              <td>
+                                Allocated to {emp ? emp.name : "Employee"} (Due:{" "}
+                                {al.expectedReturnDate || "N/A"})
+                              </td>
+                              <td>
+                                <span
+                                  className={`status-badge ${al.status.toLowerCase()}`}
+                                >
+                                  {al.status}
+                                </span>
+                              </td>
+                              <td>
+                                {al.status === "Active" && (
+                                  <button
+                                    className="btn btn-secondary"
+                                    style={{
+                                      padding: "4px 8px",
+                                      fontSize: "12px",
+                                    }}
+                                    onClick={() => {
+                                      setSelectedAsset(
+                                        assets.find(
+                                          (a) => a.id === selectedAllocAssetId,
+                                        ),
+                                      );
+                                      setActiveModal("return");
+                                    }}
+                                  >
+                                    Return Asset
+                                  </button>
+                                )}
+                              </td>
+                            </tr>
+                          );
+                        })}
                       {/* Transfers */}
-                      {transfers.filter(tr => tr.assetId === selectedAllocAssetId).map(tr => {
-                        const fromEmp = employees.find(e => e.id === tr.fromEmployeeId);
-                        const toEmp = employees.find(e => e.id === tr.toEmployeeId);
-                        return (
-                          <tr key={tr.id}>
-                            <td>{new Date(tr.requestedAt).toLocaleDateString()}</td>
-                            <td>Transfer Request</td>
-                            <td>From {fromEmp ? fromEmp.name : "Unknown"} to {toEmp ? toEmp.name : "Unknown"}</td>
-                            <td>
-                              <span className={`status-badge ${tr.status.toLowerCase()}`}>{tr.status}</span>
-                            </td>
-                            <td>
-                              {tr.status === "Requested" && (user.role === "Asset Manager" || user.role === "Admin") && (
-                                <button className="btn btn-primary" style={{ padding: "4px 8px", fontSize: "12px" }} onClick={() => approveTransfer(tr.id)}>
-                                  Approve Transfer
-                                </button>
-                              )}
-                            </td>
-                          </tr>
-                        );
-                      })}
-                      {allocations.filter(al => al.assetId === selectedAllocAssetId).length === 0 &&
-                        transfers.filter(tr => tr.assetId === selectedAllocAssetId).length === 0 && (
+                      {transfers
+                        .filter((tr) => tr.assetId === selectedAllocAssetId)
+                        .map((tr) => {
+                          const fromEmp = employees.find(
+                            (e) => e.id === tr.fromEmployeeId,
+                          );
+                          const toEmp = employees.find(
+                            (e) => e.id === tr.toEmployeeId,
+                          );
+                          return (
+                            <tr key={tr.id}>
+                              <td>
+                                {new Date(tr.requestedAt).toLocaleDateString()}
+                              </td>
+                              <td>Transfer Request</td>
+                              <td>
+                                From {fromEmp ? fromEmp.name : "Unknown"} to{" "}
+                                {toEmp ? toEmp.name : "Unknown"}
+                              </td>
+                              <td>
+                                <span
+                                  className={`status-badge ${tr.status.toLowerCase()}`}
+                                >
+                                  {tr.status}
+                                </span>
+                              </td>
+                              <td>
+                                {tr.status === "Requested" &&
+                                  (user.role === "Asset Manager" ||
+                                    user.role === "Admin") && (
+                                    <button
+                                      className="btn btn-primary"
+                                      style={{
+                                        padding: "4px 8px",
+                                        fontSize: "12px",
+                                      }}
+                                      onClick={() => approveTransfer(tr.id)}
+                                    >
+                                      Approve Transfer
+                                    </button>
+                                  )}
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      {allocations.filter(
+                        (al) => al.assetId === selectedAllocAssetId,
+                      ).length === 0 &&
+                        transfers.filter(
+                          (tr) => tr.assetId === selectedAllocAssetId,
+                        ).length === 0 && (
                           <tr>
-                            <td colSpan="5" style={{ textAlign: "center", color: "#8e8d85" }}>No history found for this asset.</td>
+                            <td
+                              colSpan="5"
+                              style={{ textAlign: "center", color: "#8e8d85" }}
+                            >
+                              No history found for this asset.
+                            </td>
                           </tr>
                         )}
                     </tbody>
@@ -1717,31 +3042,61 @@ function App() {
           <div>
             <div className="card mb-4">
               <h3>Resource Booking Calendar</h3>
-              <p style={{ color: "#8e8d85", fontSize: "14px", marginTop: "4px" }}>
-                Select a shared bookable resource and date to schedule or view hourly bookings.
+              <p
+                style={{ color: "#8e8d85", fontSize: "14px", marginTop: "4px" }}
+              >
+                Select a shared bookable resource and date to schedule or view
+                hourly bookings.
               </p>
 
-              <div className="search-bar mt-4" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+              <div
+                className="search-bar mt-4"
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "16px",
+                }}
+              >
                 <div>
-                  <label style={{ display: "block", marginBottom: "6px", fontSize: "13px" }}>Shared Resource</label>
+                  <label
+                    style={{
+                      display: "block",
+                      marginBottom: "6px",
+                      fontSize: "13px",
+                    }}
+                  >
+                    Shared Resource
+                  </label>
                   <select
                     className="form-control"
                     value={selectedBookingAssetId}
-                    onChange={e => setSelectedBookingAssetId(e.target.value)}
+                    onChange={(e) => setSelectedBookingAssetId(e.target.value)}
                   >
                     <option value="">-- Choose Resource --</option>
-                    {assets.filter(a => a.isBookable).map(a => (
-                      <option key={a.id} value={a.id}>{a.name} ({a.tag})</option>
-                    ))}
+                    {assets
+                      .filter((a) => a.isBookable)
+                      .map((a) => (
+                        <option key={a.id} value={a.id}>
+                          {a.name} ({a.tag})
+                        </option>
+                      ))}
                   </select>
                 </div>
                 <div>
-                  <label style={{ display: "block", marginBottom: "6px", fontSize: "13px" }}>Date</label>
+                  <label
+                    style={{
+                      display: "block",
+                      marginBottom: "6px",
+                      fontSize: "13px",
+                    }}
+                  >
+                    Date
+                  </label>
                   <input
                     type="date"
                     className="form-control"
                     value={selectedBookingDate}
-                    onChange={e => setSelectedBookingDate(e.target.value)}
+                    onChange={(e) => setSelectedBookingDate(e.target.value)}
                   />
                 </div>
               </div>
@@ -1749,12 +3104,16 @@ function App() {
 
             {selectedBookingAssetId && (
               <div className="card mb-4">
-                <h4 style={{ marginBottom: "16px" }}>Hourly Slots for {selectedBookingDate}</h4>
-                <div style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-                  gap: "12px"
-                }}>
+                <h4 style={{ marginBottom: "16px" }}>
+                  Hourly Slots for {selectedBookingDate}
+                </h4>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                    gap: "12px",
+                  }}
+                >
                   {[
                     { start: "09:00", end: "10:00" },
                     { start: "10:00", end: "11:00" },
@@ -1764,15 +3123,18 @@ function App() {
                     { start: "14:00", end: "15:00" },
                     { start: "15:00", end: "16:00" },
                     { start: "16:00", end: "17:00" },
-                    { start: "17:00", end: "18:00" }
-                  ].map(slot => {
-                    const booking = bookings.find(b =>
-                      b.assetId === selectedBookingAssetId &&
-                      b.date === selectedBookingDate &&
-                      b.status !== "Cancelled" &&
-                      b.startTime === slot.start
+                    { start: "17:00", end: "18:00" },
+                  ].map((slot) => {
+                    const booking = bookings.find(
+                      (b) =>
+                        b.assetId === selectedBookingAssetId &&
+                        b.date === selectedBookingDate &&
+                        b.status !== "Cancelled" &&
+                        b.startTime === slot.start,
                     );
-                    const booker = booking ? employees.find(e => e.id === booking.employeeId) : null;
+                    const booker = booking
+                      ? employees.find((e) => e.id === booking.employeeId)
+                      : null;
 
                     if (booking) {
                       return (
@@ -1786,20 +3148,44 @@ function App() {
                             display: "flex",
                             flexDirection: "column",
                             justifyContent: "space-between",
-                            gap: "8px"
+                            gap: "8px",
                           }}
                         >
                           <div>
-                            <span style={{ fontSize: "14px", fontWeight: "bold", color: "#ef4444" }}>{slot.start} - {slot.end}</span>
-                            <div style={{ fontSize: "13px", color: "var(--text-secondary)", marginTop: "4px" }}>
-                              Booked by: <strong>{booker ? booker.name : "Employee"}</strong>
+                            <span
+                              style={{
+                                fontSize: "14px",
+                                fontWeight: "bold",
+                                color: "#ef4444",
+                              }}
+                            >
+                              {slot.start} - {slot.end}
+                            </span>
+                            <div
+                              style={{
+                                fontSize: "13px",
+                                color: "var(--text-secondary)",
+                                marginTop: "4px",
+                              }}
+                            >
+                              Booked by:{" "}
+                              <strong>
+                                {booker ? booker.name : "Employee"}
+                              </strong>
                             </div>
                           </div>
-                          {(booking.employeeId === user.id || user.role === "Admin") && (
+                          {(booking.employeeId === user.id ||
+                            user.role === "Admin") && (
                             <button
                               className="btn btn-danger"
-                              style={{ alignSelf: "flex-end", padding: "4px 8px", fontSize: "11px" }}
-                              onClick={() => updateBookingStatus(booking.id, "Cancelled")}
+                              style={{
+                                alignSelf: "flex-end",
+                                padding: "4px 8px",
+                                fontSize: "11px",
+                              }}
+                              onClick={() =>
+                                updateBookingStatus(booking.id, "Cancelled")
+                              }
                             >
                               Cancel
                             </button>
@@ -1818,17 +3204,35 @@ function App() {
                           padding: "16px",
                           display: "flex",
                           alignItems: "center",
-                          justifyContent: "space-between"
+                          justifyContent: "space-between",
                         }}
                       >
                         <div>
-                          <span style={{ fontSize: "14px", fontWeight: "bold", color: "#8e8d85" }}>{slot.start} - {slot.end}</span>
-                          <div style={{ fontSize: "12px", color: "#8e8d85", marginTop: "2px" }}>Available</div>
+                          <span
+                            style={{
+                              fontSize: "14px",
+                              fontWeight: "bold",
+                              color: "#8e8d85",
+                            }}
+                          >
+                            {slot.start} - {slot.end}
+                          </span>
+                          <div
+                            style={{
+                              fontSize: "12px",
+                              color: "#8e8d85",
+                              marginTop: "2px",
+                            }}
+                          >
+                            Available
+                          </div>
                         </div>
                         <button
                           className="btn btn-primary"
                           style={{ padding: "6px 12px", fontSize: "12px" }}
-                          onClick={() => inlineBookResource(slot.start, slot.end)}
+                          onClick={() =>
+                            inlineBookResource(slot.start, slot.end)
+                          }
                         >
                           Book Slot
                         </button>
@@ -1853,31 +3257,58 @@ function App() {
                     </tr>
                   </thead>
                   <tbody>
-                    {bookings.filter(b => b.employeeId === user.id || user.role === "Admin").map(b => {
-                      const res = assets.find(a => a.id === b.assetId);
-                      return (
-                        <tr key={b.id}>
-                          <td>{res ? `${res.name} (${res.tag})` : "Unknown"}</td>
-                          <td>{b.date}</td>
-                          <td>{b.startTime} - {b.endTime}</td>
-                          <td>
-                            <span className={`status-badge ${b.status.toLowerCase()}`}>
-                              {b.status}
-                            </span>
-                          </td>
-                          <td>
-                            {b.status === "Upcoming" && (
-                              <button className="btn btn-danger" style={{ padding: "4px 8px", fontSize: "12px" }} onClick={() => updateBookingStatus(b.id, "Cancelled")}>
-                                Cancel Booking
-                              </button>
-                            )}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                    {bookings.filter(b => b.employeeId === user.id || user.role === "Admin").length === 0 && (
+                    {bookings
+                      .filter(
+                        (b) =>
+                          b.employeeId === user.id || user.role === "Admin",
+                      )
+                      .map((b) => {
+                        const res = assets.find((a) => a.id === b.assetId);
+                        return (
+                          <tr key={b.id}>
+                            <td>
+                              {res ? `${res.name} (${res.tag})` : "Unknown"}
+                            </td>
+                            <td>{b.date}</td>
+                            <td>
+                              {b.startTime} - {b.endTime}
+                            </td>
+                            <td>
+                              <span
+                                className={`status-badge ${b.status.toLowerCase()}`}
+                              >
+                                {b.status}
+                              </span>
+                            </td>
+                            <td>
+                              {b.status === "Upcoming" && (
+                                <button
+                                  className="btn btn-danger"
+                                  style={{
+                                    padding: "4px 8px",
+                                    fontSize: "12px",
+                                  }}
+                                  onClick={() =>
+                                    updateBookingStatus(b.id, "Cancelled")
+                                  }
+                                >
+                                  Cancel Booking
+                                </button>
+                              )}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    {bookings.filter(
+                      (b) => b.employeeId === user.id || user.role === "Admin",
+                    ).length === 0 && (
                       <tr>
-                        <td colSpan="5" style={{ textAlign: "center", color: "#8e8d85" }}>No bookings found.</td>
+                        <td
+                          colSpan="5"
+                          style={{ textAlign: "center", color: "#8e8d85" }}
+                        >
+                          No bookings found.
+                        </td>
                       </tr>
                     )}
                   </tbody>
@@ -1889,42 +3320,79 @@ function App() {
 
         {currentTab === "maintenance" && (
           <div>
-            <div className="card mb-4" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div
+              className="card mb-4"
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
               <div>
                 <h3>Maintenance Management Kanban</h3>
-                <p style={{ color: "#8e8d85", fontSize: "14px", marginTop: "4px" }}>
-                  Track tickets through approval, assignment, execution, and resolution.
+                <p
+                  style={{
+                    color: "#8e8d85",
+                    fontSize: "14px",
+                    marginTop: "4px",
+                  }}
+                >
+                  Track tickets through approval, assignment, execution, and
+                  resolution.
                 </p>
               </div>
-              <button className="btn btn-primary" onClick={() => {
-                setMaintenanceForm({ assetId: assets[0]?.id || "", description: "", priority: "Medium" });
-                setActiveModal("requestMaintenance");
-              }}>
+              <button
+                className="btn btn-primary"
+                onClick={() => {
+                  setMaintenanceForm({
+                    assetId: assets[0]?.id || "",
+                    description: "",
+                    priority: "Medium",
+                  });
+                  setActiveModal("requestMaintenance");
+                }}
+              >
                 <Plus size={16} /> Raise Ticket
               </button>
             </div>
 
             {/* Kanban columns wrapper */}
-            <div style={{
-              display: "flex",
-              gap: "16px",
-              overflowX: "auto",
-              paddingBottom: "20px",
-              minHeight: "500px"
-            }}>
+            <div
+              style={{
+                display: "flex",
+                gap: "16px",
+                overflowX: "auto",
+                paddingBottom: "20px",
+                minHeight: "500px",
+              }}
+            >
               {[
                 { title: "Pending", key: "Pending", color: "#f59e0b" },
                 { title: "Approved", key: "Approved", color: "#06b6d4" },
-                { title: "Technician Assigned", key: "Technician Assigned", color: "#8b5cf6" },
+                {
+                  title: "Technician Assigned",
+                  key: "Technician Assigned",
+                  color: "#8b5cf6",
+                },
                 { title: "In Progress", key: "In Progress", color: "#3b82f6" },
-                { title: "Resolved", key: "Resolved", color: "#10b981" }
-              ].map(col => {
-                const colTickets = maintenance.filter(m => {
+                { title: "Resolved", key: "Resolved", color: "#10b981" },
+              ].map((col) => {
+                const colTickets = maintenance.filter((m) => {
+                  const isManager =
+                    user.role === "Admin" ||
+                    user.role === "Asset Manager" ||
+                    user.role === "Department Head";
+                  if (!isManager && m.employeeId !== user.id) {
+                    return false;
+                  }
                   if (col.key === "Approved") {
                     return m.status === "Approved" && !m.technician;
                   }
                   if (col.key === "Technician Assigned") {
-                    return m.status === "Technician Assigned" || (m.status === "Approved" && m.technician);
+                    return (
+                      m.status === "Technician Assigned" ||
+                      (m.status === "Approved" && m.technician)
+                    );
                   }
                   return m.status === col.key;
                 });
@@ -1934,112 +3402,303 @@ function App() {
                     key={col.key}
                     style={{
                       flex: "1",
-                      minWidth: "260px",
+                      minWidth: "280px",
                       backgroundColor: "rgba(255, 255, 255, 0.02)",
                       border: "1px solid rgba(255, 255, 255, 0.05)",
                       borderRadius: "8px",
-                      padding: "16px"
+                      padding: "16px",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "12px",
                     }}
                   >
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px", borderBottom: `2px solid ${col.color}`, paddingBottom: "8px" }}>
-                      <span style={{ fontWeight: "bold", fontSize: "14px" }}>{col.title}</span>
-                      <span style={{
-                        backgroundColor: "rgba(255, 255, 255, 0.05)",
-                        padding: "2px 8px",
-                        borderRadius: "12px",
-                        fontSize: "12px",
-                        fontWeight: "bold"
-                      }}>{colTickets.length}</span>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        paddingBottom: "10px",
+                        borderBottom: `2px solid ${col.color}`,
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontWeight: "600",
+                          fontSize: "14px",
+                          color: "#ffffff",
+                        }}
+                      >
+                        {col.title}
+                      </span>
+                      <span
+                        style={{
+                          backgroundColor: "rgba(255, 255, 255, 0.06)",
+                          color: "#c3c2b7",
+                          padding: "2px 8px",
+                          borderRadius: "12px",
+                          fontSize: "11px",
+                          fontWeight: "700",
+                        }}
+                      >
+                        {colTickets.length}
+                      </span>
                     </div>
 
-                    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                      {colTickets.map(ticket => {
-                        const assetItem = assets.find(a => a.id === ticket.assetId);
-                        const requester = employees.find(e => e.id === ticket.employeeId);
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "12px",
+                        flex: 1,
+                      }}
+                    >
+                      {colTickets.map((ticket) => {
+                        const assetItem = assets.find(
+                          (a) => a.id === ticket.assetId,
+                        );
+                        const requester = employees.find(
+                          (e) => e.id === ticket.employeeId,
+                        );
 
                         return (
                           <div
                             key={ticket.id}
                             style={{
                               backgroundColor: "#2c2c2a",
-                              border: "1px solid rgba(255, 255, 255, 0.04)",
+                              border: "1px solid rgba(255, 255, 255, 0.06)",
+                              borderLeft: `4px solid ${
+                                ticket.priority === "High"
+                                  ? "#ef4444"
+                                  : ticket.priority === "Medium"
+                                    ? "#f59e0b"
+                                    : "#8e8d85"
+                              }`,
                               borderRadius: "6px",
-                              padding: "12px",
+                              padding: "14px",
                               display: "flex",
                               flexDirection: "column",
-                              gap: "8px"
+                              gap: "10px",
+                              boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.2)",
                             }}
                           >
-                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
-                              <span style={{ fontWeight: "bold", fontSize: "13px", color: "var(--primary)" }}>
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontWeight: "600",
+                                  fontSize: "14px",
+                                  color: "#d97706",
+                                }}
+                              >
                                 {assetItem ? assetItem.name : "Asset"}
                               </span>
-                              <span style={{ fontSize: "11px", color: "#8e8d85" }}>{assetItem?.tag}</span>
+                              <span
+                                style={{
+                                  fontFamily: "monospace",
+                                  fontSize: "10px",
+                                  color: "#8e8d85",
+                                  backgroundColor: "rgba(255, 255, 255, 0.05)",
+                                  padding: "2px 6px",
+                                  borderRadius: "4px",
+                                }}
+                              >
+                                {assetItem?.tag}
+                              </span>
                             </div>
 
-                            <p style={{ fontSize: "12px", margin: "4px 0", color: "#c3c2b7", wordBreak: "break-word" }}>
+                            <p
+                              style={{
+                                fontSize: "13px",
+                                margin: "0",
+                                color: "#c3c2b7",
+                                lineHeight: "1.4",
+                                wordBreak: "break-word",
+                              }}
+                            >
                               {ticket.description}
                             </p>
 
-                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "4px" }}>
-                              <span style={{
-                                fontSize: "10px",
-                                padding: "2px 6px",
-                                borderRadius: "4px",
-                                fontWeight: "bold",
-                                backgroundColor: ticket.priority === "High" ? "rgba(239, 68, 68, 0.15)" : ticket.priority === "Medium" ? "rgba(245, 158, 11, 0.15)" : "rgba(255,255,255,0.08)",
-                                color: ticket.priority === "High" ? "#ef4444" : ticket.priority === "Medium" ? "#f59e0b" : "#8e8d85"
-                              }}>{ticket.priority}</span>
-                              <span style={{ fontSize: "11px", color: "#8e8d85" }}>By: {requester?.name || "Employee"}</span>
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                                fontSize: "11px",
+                                marginTop: "4px",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  padding: "2px 6px",
+                                  borderRadius: "4px",
+                                  fontWeight: "bold",
+                                  backgroundColor:
+                                    ticket.priority === "High"
+                                      ? "rgba(239, 68, 68, 0.15)"
+                                      : ticket.priority === "Medium"
+                                        ? "rgba(245, 158, 11, 0.15)"
+                                        : "rgba(255,255,255,0.08)",
+                                  color:
+                                    ticket.priority === "High"
+                                      ? "#ef4444"
+                                      : ticket.priority === "Medium"
+                                        ? "#f59e0b"
+                                        : "#8e8d85",
+                                }}
+                              >
+                                {ticket.priority}
+                              </span>
+                              <span style={{ color: "#8e8d85" }}>
+                                By:{" "}
+                                <strong style={{ color: "#c3c2b7" }}>
+                                  {requester?.name || "Employee"}
+                                </strong>
+                              </span>
                             </div>
 
                             {ticket.technician && (
-                              <div style={{ fontSize: "11px", color: "#8b5cf6", marginTop: "4px", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "4px" }}>
-                                🛠️ Tech: {ticket.technician}
+                              <div
+                                style={{
+                                  fontSize: "12px",
+                                  color: "#a78bfa",
+                                  backgroundColor: "rgba(139, 92, 246, 0.08)",
+                                  padding: "6px 10px",
+                                  borderRadius: "4px",
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "6px",
+                                  border: "1px solid rgba(139, 92, 246, 0.15)",
+                                }}
+                              >
+                                🛠️{" "}
+                                <span>
+                                  Technician:{" "}
+                                  <strong>{ticket.technician}</strong>
+                                </span>
                               </div>
                             )}
 
-                            {(user.role === "Asset Manager" || user.role === "Admin") && (
-                              <div style={{ display: "flex", gap: "6px", marginTop: "8px", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "8px" }}>
+                            {(user.role === "Asset Manager" ||
+                              user.role === "Admin") && (
+                              <div
+                                style={{
+                                  display: "flex",
+                                  gap: "8px",
+                                  marginTop: "6px",
+                                  borderTop: "1px solid rgba(255,255,255,0.06)",
+                                  paddingTop: "10px",
+                                }}
+                              >
                                 {ticket.status === "Pending" && (
                                   <>
                                     <button
-                                      className="btn btn-primary"
-                                      style={{ flex: 1, padding: "4px 6px", fontSize: "11px" }}
-                                      onClick={() => updateMaintenanceStatus(ticket.id, "Approved")}
+                                      type="button"
+                                      style={{
+                                        flex: 1,
+                                        padding: "6px 12px",
+                                        fontSize: "12px",
+                                        fontWeight: "600",
+                                        backgroundColor: "#10b981",
+                                        border: "none",
+                                        borderRadius: "4px",
+                                        color: "#ffffff",
+                                        cursor: "pointer",
+                                      }}
+                                      onClick={() =>
+                                        updateMaintenanceStatus(
+                                          ticket.id,
+                                          "Approved",
+                                        )
+                                      }
                                     >
                                       Approve
                                     </button>
                                     <button
-                                      className="btn btn-danger"
-                                      style={{ padding: "4px 6px", fontSize: "11px" }}
-                                      onClick={() => updateMaintenanceStatus(ticket.id, "Rejected")}
+                                      type="button"
+                                      style={{
+                                        padding: "6px 12px",
+                                        fontSize: "12px",
+                                        fontWeight: "600",
+                                        backgroundColor:
+                                          "rgba(239, 68, 68, 0.15)",
+                                        border:
+                                          "1px solid rgba(239, 68, 68, 0.3)",
+                                        borderRadius: "4px",
+                                        color: "#ef4444",
+                                        cursor: "pointer",
+                                      }}
+                                      onClick={() =>
+                                        updateMaintenanceStatus(
+                                          ticket.id,
+                                          "Rejected",
+                                        )
+                                      }
                                     >
                                       Reject
                                     </button>
                                   </>
                                 )}
 
-                                {ticket.status === "Approved" && !ticket.technician && (
-                                  <button
-                                    className="btn btn-primary w-full"
-                                    style={{ padding: "4px 6px", fontSize: "11px" }}
-                                    onClick={() => {
-                                      const tech = prompt("Enter Technician name:");
-                                      if (tech) {
-                                        updateMaintenanceStatus(ticket.id, "Technician Assigned", tech);
-                                      }
-                                    }}
-                                  >
-                                    Assign Technician
-                                  </button>
-                                )}
+                                {ticket.status === "Approved" &&
+                                  !ticket.technician && (
+                                    <button
+                                      type="button"
+                                      style={{
+                                        width: "100%",
+                                        padding: "6px 12px",
+                                        fontSize: "12px",
+                                        fontWeight: "600",
+                                        backgroundColor: "#d97706",
+                                        border: "none",
+                                        borderRadius: "4px",
+                                        color: "#ffffff",
+                                        cursor: "pointer",
+                                      }}
+                                      onClick={() => {
+                                        const tech = prompt(
+                                          "Enter Technician name:",
+                                        );
+                                        if (tech) {
+                                          updateMaintenanceStatus(
+                                            ticket.id,
+                                            "Technician Assigned",
+                                            tech,
+                                          );
+                                        }
+                                      }}
+                                    >
+                                      Assign Technician
+                                    </button>
+                                  )}
 
-                                {(ticket.status === "Technician Assigned" || (ticket.status === "Approved" && ticket.technician)) && (
+                                {(ticket.status === "Technician Assigned" ||
+                                  (ticket.status === "Approved" &&
+                                    ticket.technician)) && (
                                   <button
-                                    className="btn btn-primary w-full"
-                                    style={{ padding: "4px 6px", fontSize: "11px" }}
-                                    onClick={() => updateMaintenanceStatus(ticket.id, "In Progress")}
+                                    type="button"
+                                    style={{
+                                      width: "100%",
+                                      padding: "6px 12px",
+                                      fontSize: "12px",
+                                      fontWeight: "600",
+                                      backgroundColor: "#3b82f6",
+                                      border: "none",
+                                      borderRadius: "4px",
+                                      color: "#ffffff",
+                                      cursor: "pointer",
+                                    }}
+                                    onClick={() =>
+                                      updateMaintenanceStatus(
+                                        ticket.id,
+                                        "In Progress",
+                                      )
+                                    }
                                   >
                                     Start Work
                                   </button>
@@ -2047,9 +3706,24 @@ function App() {
 
                                 {ticket.status === "In Progress" && (
                                   <button
-                                    className="btn btn-primary w-full"
-                                    style={{ padding: "4px 6px", fontSize: "11px" }}
-                                    onClick={() => updateMaintenanceStatus(ticket.id, "Resolved")}
+                                    type="button"
+                                    style={{
+                                      width: "100%",
+                                      padding: "6px 12px",
+                                      fontSize: "12px",
+                                      fontWeight: "600",
+                                      backgroundColor: "#10b981",
+                                      border: "none",
+                                      borderRadius: "4px",
+                                      color: "#ffffff",
+                                      cursor: "pointer",
+                                    }}
+                                    onClick={() =>
+                                      updateMaintenanceStatus(
+                                        ticket.id,
+                                        "Resolved",
+                                      )
+                                    }
                                   >
                                     Mark Resolved
                                   </button>
@@ -2060,7 +3734,20 @@ function App() {
                         );
                       })}
                       {colTickets.length === 0 && (
-                        <div style={{ textAlign: "center", color: "#8e8d85", fontSize: "12px", padding: "20px 0" }}>
+                        <div
+                          style={{
+                            textAlign: "center",
+                            color: "#8e8d85",
+                            fontSize: "12px",
+                            padding: "20px 0",
+                            flex: 1,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            border: "1.5px dashed rgba(255, 255, 255, 0.03)",
+                            borderRadius: "6px",
+                          }}
+                        >
                           No tickets
                         </div>
                       )}
@@ -2078,7 +3765,10 @@ function App() {
               <div className="flex-between">
                 <h3>Asset Audit Cycles</h3>
                 {user.role === "Admin" && (
-                  <button className="btn btn-primary" onClick={() => setActiveModal("addAudit")}>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => setActiveModal("addAudit")}
+                  >
                     <Plus size={16} /> Schedule Audit Cycle
                   </button>
                 )}
@@ -2099,29 +3789,46 @@ function App() {
                     </tr>
                   </thead>
                   <tbody>
-                    {audits.map(audit => (
+                    {audits.map((audit) => (
                       <tr key={audit.id}>
                         <td>{audit.name}</td>
                         <td>{audit.scope}</td>
-                        <td>{audit.startDate} to {audit.endDate}</td>
                         <td>
-                          <span className={`status-badge ${audit.status.toLowerCase()}`}>
+                          {audit.startDate} to {audit.endDate}
+                        </td>
+                        <td>
+                          <span
+                            className={`status-badge ${audit.status.toLowerCase()}`}
+                          >
                             {audit.status}
                           </span>
                         </td>
                         <td>
                           <div style={{ display: "flex", gap: "8px" }}>
-                            <button className="btn btn-secondary" style={{ padding: "4px 8px", fontSize: "12px" }} onClick={() => {
-                              setSelectedAudit(audit);
-                              setActiveModal("viewAuditResults");
-                            }}>
+                            <button
+                              className="btn btn-secondary"
+                              style={{ padding: "4px 8px", fontSize: "12px" }}
+                              onClick={() => {
+                                setSelectedAudit(audit);
+                                setActiveModal("viewAuditResults");
+                              }}
+                            >
                               View Discrepancy & Verification
                             </button>
-                            {audit.status === "Active" && (user.role === "Asset Manager" || user.role === "Admin") && (
-                              <button className="btn btn-danger" style={{ padding: "4px 8px", fontSize: "12px" }} onClick={() => closeAuditCycle(audit.id)}>
-                                Close Audit (Lock)
-                              </button>
-                            )}
+                            {audit.status === "Active" &&
+                              (user.role === "Asset Manager" ||
+                                user.role === "Admin") && (
+                                <button
+                                  className="btn btn-danger"
+                                  style={{
+                                    padding: "4px 8px",
+                                    fontSize: "12px",
+                                  }}
+                                  onClick={() => closeAuditCycle(audit.id)}
+                                >
+                                  Close Audit (Lock)
+                                </button>
+                              )}
                           </div>
                         </td>
                       </tr>
@@ -2170,16 +3877,21 @@ function App() {
               <div className="card">
                 <h3>Allocations by Category</h3>
                 <div className="chart-placeholder">
-                  {Object.keys(analytics?.categoryCounts || {}).map(catName => {
-                    const count = analytics.categoryCounts[catName];
-                    const heightPercent = Math.min(150, count * 50);
-                    return (
-                      <div key={catName} className="chart-bar-wrapper">
-                        <div className="chart-bar" style={{ height: `${heightPercent}px` }} />
-                        <span className="chart-bar-label">{catName}</span>
-                      </div>
-                    );
-                  })}
+                  {Object.keys(analytics?.categoryCounts || {}).map(
+                    (catName) => {
+                      const count = analytics.categoryCounts[catName];
+                      const heightPercent = Math.min(150, count * 50);
+                      return (
+                        <div key={catName} className="chart-bar-wrapper">
+                          <div
+                            className="chart-bar"
+                            style={{ height: `${heightPercent}px` }}
+                          />
+                          <span className="chart-bar-label">{catName}</span>
+                        </div>
+                      );
+                    },
+                  )}
                 </div>
               </div>
             </div>
@@ -2197,7 +3909,7 @@ function App() {
                       </tr>
                     </thead>
                     <tbody>
-                      {logs.map(log => (
+                      {logs.map((log) => (
                         <tr key={log.id}>
                           <td>{log.userName}</td>
                           <td>{log.action}</td>
@@ -2216,44 +3928,88 @@ function App() {
           <div className="card">
             <div className="flex-between mb-4">
               <h3>System Notifications</h3>
-              {notifications.filter(n => !n.read).length > 0 && (
-                <button className="btn btn-secondary" onClick={() => {
-                  notifications.forEach(n => { if (!n.read) markNotificationRead(n.id); });
-                }}>
+              {notifications.filter((n) => !n.read).length > 0 && (
+                <button
+                  className="btn btn-secondary"
+                  onClick={() => {
+                    notifications.forEach((n) => {
+                      if (!n.read) markNotificationRead(n.id);
+                    });
+                  }}
+                >
                   Mark all as read
                 </button>
               )}
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "20px" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "12px",
+                marginTop: "20px",
+              }}
+            >
               {notifications.length === 0 ? (
-                <div style={{ textAlign: "center", color: "#8e8d85", padding: "40px" }}>
+                <div
+                  style={{
+                    textAlign: "center",
+                    color: "#8e8d85",
+                    padding: "40px",
+                  }}
+                >
                   No notifications yet.
                 </div>
               ) : (
-                notifications.map(n => (
+                notifications.map((n) => (
                   <div
                     key={n.id}
                     onClick={() => markNotificationRead(n.id)}
                     style={{
-                      backgroundColor: n.read ? "rgba(255, 255, 255, 0.01)" : "rgba(217, 119, 6, 0.05)",
-                      border: n.read ? "1px solid rgba(255,255,255,0.03)" : "1px solid #d97706",
+                      backgroundColor: n.read
+                        ? "rgba(255, 255, 255, 0.01)"
+                        : "rgba(217, 119, 6, 0.05)",
+                      border: n.read
+                        ? "1px solid rgba(255,255,255,0.03)"
+                        : "1px solid #d97706",
                       borderRadius: "8px",
                       padding: "16px",
                       display: "flex",
                       justifyContent: "space-between",
                       alignItems: "center",
-                      cursor: "pointer"
+                      cursor: "pointer",
                     }}
                   >
                     <div>
-                      <span style={{ fontSize: "14px", color: "#c3c2b7", fontWeight: n.read ? "normal" : "bold" }}>{n.message}</span>
-                      <span style={{ display: "block", fontSize: "12px", color: "#8e8d85", marginTop: "4px" }}>
+                      <span
+                        style={{
+                          fontSize: "14px",
+                          color: "#c3c2b7",
+                          fontWeight: n.read ? "normal" : "bold",
+                        }}
+                      >
+                        {n.message}
+                      </span>
+                      <span
+                        style={{
+                          display: "block",
+                          fontSize: "12px",
+                          color: "#8e8d85",
+                          marginTop: "4px",
+                        }}
+                      >
                         {new Date(n.createdAt).toLocaleString()}
                       </span>
                     </div>
                     {!n.read && (
-                      <span style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: "#d97706" }} />
+                      <span
+                        style={{
+                          width: "8px",
+                          height: "8px",
+                          borderRadius: "50%",
+                          backgroundColor: "#d97706",
+                        }}
+                      />
                     )}
                   </div>
                 ))
@@ -2265,33 +4021,74 @@ function App() {
 
       {activeModal === "addDept" && (
         <div className="modal-backdrop" onClick={() => setActiveModal(null)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Create Department</h3>
-              <button className="notification-bell" onClick={() => setActiveModal(null)}><X size={16} /></button>
+              <button
+                className="notification-bell"
+                onClick={() => setActiveModal(null)}
+              >
+                <X size={16} />
+              </button>
             </div>
             <form onSubmit={addDepartment}>
               <div className="form-group">
                 <label>Department Name</label>
-                <input type="text" className="form-control" value={deptForm.name} onChange={e => setDeptForm({ ...deptForm, name: e.target.value })} required />
+                <input
+                  type="text"
+                  className="form-control"
+                  value={deptForm.name}
+                  onChange={(e) =>
+                    setDeptForm({ ...deptForm, name: e.target.value })
+                  }
+                  required
+                />
               </div>
               <div className="form-group">
                 <label>Parent Department</label>
-                <select className="form-control" value={deptForm.parentId} onChange={e => setDeptForm({ ...deptForm, parentId: e.target.value })}>
+                <select
+                  className="form-control"
+                  value={deptForm.parentId}
+                  onChange={(e) =>
+                    setDeptForm({ ...deptForm, parentId: e.target.value })
+                  }
+                >
                   <option value="">None</option>
-                  {departments.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
+                  {departments.map((d) => (
+                    <option key={d.id} value={d.id}>
+                      {d.name}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div className="form-group">
                 <label>Department Head</label>
-                <select className="form-control" value={deptForm.headId} onChange={e => setDeptForm({ ...deptForm, headId: e.target.value })}>
+                <select
+                  className="form-control"
+                  value={deptForm.headId}
+                  onChange={(e) =>
+                    setDeptForm({ ...deptForm, headId: e.target.value })
+                  }
+                >
                   <option value="">None</option>
-                  {employees.map(emp => <option key={emp.id} value={emp.id}>{emp.name}</option>)}
+                  {employees.map((emp) => (
+                    <option key={emp.id} value={emp.id}>
+                      {emp.name}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={() => setActiveModal(null)}>Cancel</button>
-                <button type="submit" className="btn btn-primary">Create</button>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => setActiveModal(null)}
+                >
+                  Cancel
+                </button>
+                <button type="submit" className="btn btn-primary">
+                  Create
+                </button>
               </div>
             </form>
           </div>
@@ -2300,23 +4097,52 @@ function App() {
 
       {activeModal === "addCat" && (
         <div className="modal-backdrop" onClick={() => setActiveModal(null)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Create Asset Category</h3>
-              <button className="notification-bell" onClick={() => setActiveModal(null)}><X size={16} /></button>
+              <button
+                className="notification-bell"
+                onClick={() => setActiveModal(null)}
+              >
+                <X size={16} />
+              </button>
             </div>
             <form onSubmit={addCategory}>
               <div className="form-group">
                 <label>Category Name</label>
-                <input type="text" className="form-control" value={catForm.name} onChange={e => setCatForm({ ...catForm, name: e.target.value })} required />
+                <input
+                  type="text"
+                  className="form-control"
+                  value={catForm.name}
+                  onChange={(e) =>
+                    setCatForm({ ...catForm, name: e.target.value })
+                  }
+                  required
+                />
               </div>
               <div className="form-group">
                 <label>Category Specific Fields (Comma separated)</label>
-                <input type="text" className="form-control" placeholder="Warranty Period, RAM, Storage" value={catForm.fields} onChange={e => setCatForm({ ...catForm, fields: e.target.value })} />
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Warranty Period, RAM, Storage"
+                  value={catForm.fields}
+                  onChange={(e) =>
+                    setCatForm({ ...catForm, fields: e.target.value })
+                  }
+                />
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={() => setActiveModal(null)}>Cancel</button>
-                <button type="submit" className="btn btn-primary">Create</button>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => setActiveModal(null)}
+                >
+                  Cancel
+                </button>
+                <button type="submit" className="btn btn-primary">
+                  Create
+                </button>
               </div>
             </form>
           </div>
@@ -2325,32 +4151,62 @@ function App() {
 
       {(activeModal === "addAsset" || activeModal === "editAsset") && (
         <div className="modal-backdrop" onClick={() => setActiveModal(null)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
-              <h3>{activeModal === "addAsset" ? "Register Asset" : "Edit Asset"}</h3>
-              <button className="notification-bell" onClick={() => setActiveModal(null)}><X size={16} /></button>
+              <h3>
+                {activeModal === "addAsset" ? "Register Asset" : "Edit Asset"}
+              </h3>
+              <button
+                className="notification-bell"
+                onClick={() => setActiveModal(null)}
+              >
+                <X size={16} />
+              </button>
             </div>
-            <form onSubmit={activeModal === "addAsset" ? registerAsset : async (e) => {
-              e.preventDefault();
-              try {
-                await apiRequest(`/assets/${selectedAsset.id}`, "PUT", assetForm);
-                setActiveModal(null);
-                loadData();
-              } catch (err) {
-                alert(err.message);
+            <form
+              onSubmit={
+                activeModal === "addAsset"
+                  ? registerAsset
+                  : async (e) => {
+                      e.preventDefault();
+                      try {
+                        await apiRequest(
+                          `/assets/${selectedAsset.id}`,
+                          "PUT",
+                          assetForm,
+                        );
+                        setActiveModal(null);
+                        loadData();
+                      } catch (err) {
+                        alert(err.message);
+                      }
+                    }
               }
-            }}>
+            >
               <div className="grid-cols-2">
                 <div className="form-group">
                   <label>Asset Name</label>
-                  <input type="text" className="form-control" value={assetForm.name} onChange={e => setAssetForm({ ...assetForm, name: e.target.value })} required />
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={assetForm.name}
+                    onChange={(e) =>
+                      setAssetForm({ ...assetForm, name: e.target.value })
+                    }
+                    required
+                  />
                 </div>
                 <div className="form-group">
                   <label>Category</label>
                   <CustomSelect
                     value={assetForm.category}
-                    onChange={val => setAssetForm({ ...assetForm, category: val })}
-                    options={categories.map(c => ({ value: c.name, label: c.name }))}
+                    onChange={(val) =>
+                      setAssetForm({ ...assetForm, category: val })
+                    }
+                    options={categories.map((c) => ({
+                      value: c.name,
+                      label: c.name,
+                    }))}
                     placeholder="Select Category"
                   />
                 </div>
@@ -2358,28 +4214,63 @@ function App() {
               <div className="grid-cols-2">
                 <div className="form-group">
                   <label>Serial Number</label>
-                  <input type="text" className="form-control" value={assetForm.serialNumber} onChange={e => setAssetForm({ ...assetForm, serialNumber: e.target.value })} required />
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={assetForm.serialNumber}
+                    onChange={(e) =>
+                      setAssetForm({
+                        ...assetForm,
+                        serialNumber: e.target.value,
+                      })
+                    }
+                    required
+                  />
                 </div>
                 <div className="form-group">
                   <label>Acquisition Cost ($)</label>
-                  <input type="number" className="form-control" value={assetForm.acquisitionCost} onChange={e => setAssetForm({ ...assetForm, acquisitionCost: e.target.value })} required />
+                  <input
+                    type="number"
+                    className="form-control"
+                    value={assetForm.acquisitionCost}
+                    onChange={(e) =>
+                      setAssetForm({
+                        ...assetForm,
+                        acquisitionCost: e.target.value,
+                      })
+                    }
+                    required
+                  />
                 </div>
               </div>
               <div className="grid-cols-2">
                 <div className="form-group">
                   <label>Acquisition Date</label>
-                  <input type="date" className="form-control" value={assetForm.acquisitionDate} onChange={e => setAssetForm({ ...assetForm, acquisitionDate: e.target.value })} required />
+                  <input
+                    type="date"
+                    className="form-control"
+                    value={assetForm.acquisitionDate}
+                    onChange={(e) =>
+                      setAssetForm({
+                        ...assetForm,
+                        acquisitionDate: e.target.value,
+                      })
+                    }
+                    required
+                  />
                 </div>
                 <div className="form-group">
                   <label>Condition</label>
                   <CustomSelect
                     value={assetForm.condition}
-                    onChange={val => setAssetForm({ ...assetForm, condition: val })}
+                    onChange={(val) =>
+                      setAssetForm({ ...assetForm, condition: val })
+                    }
                     options={[
                       { value: "Excellent", label: "Excellent" },
                       { value: "Good", label: "Good" },
                       { value: "Fair", label: "Fair" },
-                      { value: "Damaged", label: "Damaged" }
+                      { value: "Damaged", label: "Damaged" },
                     ]}
                     placeholder="Select Condition"
                   />
@@ -2387,31 +4278,76 @@ function App() {
               </div>
               <div className="form-group">
                 <label>Location</label>
-                <input type="text" className="form-control" value={assetForm.location} onChange={e => setAssetForm({ ...assetForm, location: e.target.value })} required />
+                <input
+                  type="text"
+                  className="form-control"
+                  value={assetForm.location}
+                  onChange={(e) =>
+                    setAssetForm({ ...assetForm, location: e.target.value })
+                  }
+                  required
+                />
               </div>
               <div className="form-group flex-row gap-2">
-                <input type="checkbox" checked={assetForm.isBookable} onChange={e => setAssetForm({ ...assetForm, isBookable: e.target.checked })} />
+                <input
+                  type="checkbox"
+                  checked={assetForm.isBookable}
+                  onChange={(e) =>
+                    setAssetForm({ ...assetForm, isBookable: e.target.checked })
+                  }
+                />
                 <label>This asset is a bookable/shared resource</label>
               </div>
 
               {assetForm.category && (
-                <div style={{ marginTop: "16px", padding: "16px", backgroundColor: "rgba(255,255,255,0.02)", borderRadius: "8px", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
-                  <h4 style={{ marginBottom: "12px" }}>Category-specific Details</h4>
-                  {categories.find(c => c.name === assetForm.category)?.fields.map(field => (
-                    <div className="form-group" key={field}>
-                      <label>{field}</label>
-                      <input type="text" className="form-control" value={assetForm.customFields[field] || ""} onChange={e => {
-                        const newFields = { ...assetForm.customFields, [field]: e.target.value };
-                        setAssetForm({ ...assetForm, customFields: newFields });
-                      }} />
-                    </div>
-                  ))}
+                <div
+                  style={{
+                    marginTop: "16px",
+                    padding: "16px",
+                    backgroundColor: "rgba(255,255,255,0.02)",
+                    borderRadius: "8px",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
+                  }}
+                >
+                  <h4 style={{ marginBottom: "12px" }}>
+                    Category-specific Details
+                  </h4>
+                  {categories
+                    .find((c) => c.name === assetForm.category)
+                    ?.fields.map((field) => (
+                      <div className="form-group" key={field}>
+                        <label>{field}</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          value={assetForm.customFields[field] || ""}
+                          onChange={(e) => {
+                            const newFields = {
+                              ...assetForm.customFields,
+                              [field]: e.target.value,
+                            };
+                            setAssetForm({
+                              ...assetForm,
+                              customFields: newFields,
+                            });
+                          }}
+                        />
+                      </div>
+                    ))}
                 </div>
               )}
 
               <div className="modal-footer mt-4">
-                <button type="button" className="btn btn-secondary" onClick={() => setActiveModal(null)}>Cancel</button>
-                <button type="submit" className="btn btn-primary">{activeModal === "addAsset" ? "Register" : "Save Changes"}</button>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => setActiveModal(null)}
+                >
+                  Cancel
+                </button>
+                <button type="submit" className="btn btn-primary">
+                  {activeModal === "addAsset" ? "Register" : "Save Changes"}
+                </button>
               </div>
             </form>
           </div>
@@ -2420,18 +4356,28 @@ function App() {
 
       {activeModal === "allocate" && (
         <div className="modal-backdrop" onClick={() => setActiveModal(null)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Allocate Asset</h3>
-              <button className="notification-bell" onClick={() => setActiveModal(null)}><X size={16} /></button>
+              <button
+                className="notification-bell"
+                onClick={() => setActiveModal(null)}
+              >
+                <X size={16} />
+              </button>
             </div>
             <form onSubmit={allocateAsset}>
               <div className="form-group">
                 <label>Allocate To Employee</label>
                 <CustomSelect
                   value={allocateForm.employeeId}
-                  onChange={val => setAllocateForm({ ...allocateForm, employeeId: val })}
-                  options={employees.map(emp => ({ value: emp.id, label: emp.name }))}
+                  onChange={(val) =>
+                    setAllocateForm({ ...allocateForm, employeeId: val })
+                  }
+                  options={employees.map((emp) => ({
+                    value: emp.id,
+                    label: emp.name,
+                  }))}
                   placeholder="Select Employee"
                 />
               </div>
@@ -2439,18 +4385,41 @@ function App() {
                 <label>Department</label>
                 <CustomSelect
                   value={allocateForm.departmentId}
-                  onChange={val => setAllocateForm({ ...allocateForm, departmentId: val })}
-                  options={departments.map(d => ({ value: d.id, label: d.name }))}
+                  onChange={(val) =>
+                    setAllocateForm({ ...allocateForm, departmentId: val })
+                  }
+                  options={departments.map((d) => ({
+                    value: d.id,
+                    label: d.name,
+                  }))}
                   placeholder="Select Department"
                 />
               </div>
               <div className="form-group">
                 <label>Expected Return Date (Optional)</label>
-                <input type="date" className="form-control" value={allocateForm.expectedReturnDate} onChange={e => setAllocateForm({ ...allocateForm, expectedReturnDate: e.target.value })} />
+                <input
+                  type="date"
+                  className="form-control"
+                  value={allocateForm.expectedReturnDate}
+                  onChange={(e) =>
+                    setAllocateForm({
+                      ...allocateForm,
+                      expectedReturnDate: e.target.value,
+                    })
+                  }
+                />
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={() => setActiveModal(null)}>Cancel</button>
-                <button type="submit" className="btn btn-primary">Confirm Allocation</button>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => setActiveModal(null)}
+                >
+                  Cancel
+                </button>
+                <button type="submit" className="btn btn-primary">
+                  Confirm Allocation
+                </button>
               </div>
             </form>
           </div>
@@ -2459,42 +4428,106 @@ function App() {
 
       {activeModal === "transfer" && (
         <div className="modal-backdrop" onClick={() => setActiveModal(null)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Transfer Asset</h3>
-              <button className="notification-bell" onClick={() => setActiveModal(null)}><X size={16} /></button>
+              <button
+                className="notification-bell"
+                onClick={() => setActiveModal(null)}
+              >
+                <X size={16} />
+              </button>
             </div>
             <form onSubmit={requestTransfer}>
               <div className="form-group">
                 <label>Select Target Employee</label>
-                <select className="form-control" value={transferForm.targetEmployeeId} onChange={e => setTransferForm({ targetEmployeeId: e.target.value })} required>
+                <select
+                  className="form-control"
+                  value={transferForm.targetEmployeeId}
+                  onChange={(e) =>
+                    setTransferForm({ targetEmployeeId: e.target.value })
+                  }
+                  required
+                >
                   <option value="">Select Employee</option>
-                  {employees.map(emp => emp.id !== user.id && <option key={emp.id} value={emp.id}>{emp.name}</option>)}
+                  {employees.map(
+                    (emp) =>
+                      emp.id !== user.id && (
+                        <option key={emp.id} value={emp.id}>
+                          {emp.name}
+                        </option>
+                      ),
+                  )}
                 </select>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={() => setActiveModal(null)}>Cancel</button>
-                <button type="submit" className="btn btn-primary">Request Transfer</button>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => setActiveModal(null)}
+                >
+                  Cancel
+                </button>
+                <button type="submit" className="btn btn-primary">
+                  Request Transfer
+                </button>
               </div>
             </form>
-            {transfers.filter(t => t.assetId === selectedAsset?.id && t.status === "Requested").length > 0 && (
+            {transfers.filter(
+              (t) =>
+                t.assetId === selectedAsset?.id && t.status === "Requested",
+            ).length > 0 && (
               <div style={{ marginTop: "24px" }}>
                 <h4>Pending Transfer Requests</h4>
-                <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "12px" }}>
-                  {transfers.filter(t => t.assetId === selectedAsset?.id && t.status === "Requested").map(t => {
-                    const fromEmp = employees.find(e => e.id === t.fromEmployeeId);
-                    const toEmp = employees.find(e => e.id === t.toEmployeeId);
-                    return (
-                      <div key={t.id} className="flex-between" style={{ padding: "10px", backgroundColor: "rgba(255,255,255,0.02)", borderRadius: "8px", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
-                        <span style={{ fontSize: "13px" }}>From {fromEmp?.name} to {toEmp?.name}</span>
-                        {(user.role === "Asset Manager" || user.role === "Admin" || user.role === "Department Head") && (
-                          <button className="btn btn-primary" style={{ padding: "4px 8px", fontSize: "12px" }} onClick={() => approveTransfer(t.id)}>
-                            Approve
-                          </button>
-                        )}
-                      </div>
-                    );
-                  })}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "10px",
+                    marginTop: "12px",
+                  }}
+                >
+                  {transfers
+                    .filter(
+                      (t) =>
+                        t.assetId === selectedAsset?.id &&
+                        t.status === "Requested",
+                    )
+                    .map((t) => {
+                      const fromEmp = employees.find(
+                        (e) => e.id === t.fromEmployeeId,
+                      );
+                      const toEmp = employees.find(
+                        (e) => e.id === t.toEmployeeId,
+                      );
+                      return (
+                        <div
+                          key={t.id}
+                          className="flex-between"
+                          style={{
+                            padding: "10px",
+                            backgroundColor: "rgba(255,255,255,0.02)",
+                            borderRadius: "8px",
+                            border: "1px solid rgba(255, 255, 255, 0.08)",
+                          }}
+                        >
+                          <span style={{ fontSize: "13px" }}>
+                            From {fromEmp?.name} to {toEmp?.name}
+                          </span>
+                          {(user.role === "Asset Manager" ||
+                            user.role === "Admin" ||
+                            user.role === "Department Head") && (
+                            <button
+                              className="btn btn-primary"
+                              style={{ padding: "4px 8px", fontSize: "12px" }}
+                              onClick={() => approveTransfer(t.id)}
+                            >
+                              Approve
+                            </button>
+                          )}
+                        </div>
+                      );
+                    })}
                 </div>
               </div>
             )}
@@ -2504,15 +4537,26 @@ function App() {
 
       {activeModal === "return" && (
         <div className="modal-backdrop" onClick={() => setActiveModal(null)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Return Asset</h3>
-              <button className="notification-bell" onClick={() => setActiveModal(null)}><X size={16} /></button>
+              <button
+                className="notification-bell"
+                onClick={() => setActiveModal(null)}
+              >
+                <X size={16} />
+              </button>
             </div>
             <form onSubmit={returnAsset}>
               <div className="form-group">
                 <label>Condition Notes</label>
-                <select className="form-control" value={returnForm.condition} onChange={e => setReturnForm({ ...returnForm, condition: e.target.value })}>
+                <select
+                  className="form-control"
+                  value={returnForm.condition}
+                  onChange={(e) =>
+                    setReturnForm({ ...returnForm, condition: e.target.value })
+                  }
+                >
                   <option value="Excellent">Excellent</option>
                   <option value="Good">Good</option>
                   <option value="Fair">Fair</option>
@@ -2521,11 +4565,26 @@ function App() {
               </div>
               <div className="form-group">
                 <label>Check-in Remarks</label>
-                <textarea className="form-control" value={returnForm.remarks} onChange={e => setReturnForm({ ...returnForm, remarks: e.target.value })} required />
+                <textarea
+                  className="form-control"
+                  value={returnForm.remarks}
+                  onChange={(e) =>
+                    setReturnForm({ ...returnForm, remarks: e.target.value })
+                  }
+                  required
+                />
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={() => setActiveModal(null)}>Cancel</button>
-                <button type="submit" className="btn btn-primary">Process Return</button>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => setActiveModal(null)}
+                >
+                  Cancel
+                </button>
+                <button type="submit" className="btn btn-primary">
+                  Process Return
+                </button>
               </div>
             </form>
           </div>
@@ -2534,36 +4593,92 @@ function App() {
 
       {activeModal === "book" && (
         <div className="modal-backdrop" onClick={() => setActiveModal(null)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Book Shared Resource</h3>
-              <button className="notification-bell" onClick={() => setActiveModal(null)}><X size={16} /></button>
+              <button
+                className="notification-bell"
+                onClick={() => setActiveModal(null)}
+              >
+                <X size={16} />
+              </button>
             </div>
             <form onSubmit={bookResource}>
               <div className="form-group">
                 <label>Resource / Space</label>
-                <select className="form-control" value={bookingForm.assetId} onChange={e => setBookingForm({ ...bookingForm, assetId: e.target.value })} required>
+                <select
+                  className="form-control"
+                  value={bookingForm.assetId}
+                  onChange={(e) =>
+                    setBookingForm({ ...bookingForm, assetId: e.target.value })
+                  }
+                  required
+                >
                   <option value="">Select Resource</option>
-                  {assets.filter(a => a.isBookable).map(a => <option key={a.id} value={a.id}>{a.name}</option>)}
+                  {assets
+                    .filter((a) => a.isBookable)
+                    .map((a) => (
+                      <option key={a.id} value={a.id}>
+                        {a.name}
+                      </option>
+                    ))}
                 </select>
               </div>
               <div className="form-group">
                 <label>Booking Date</label>
-                <input type="date" className="form-control" value={bookingForm.date} onChange={e => setBookingForm({ ...bookingForm, date: e.target.value })} required />
+                <input
+                  type="date"
+                  className="form-control"
+                  value={bookingForm.date}
+                  onChange={(e) =>
+                    setBookingForm({ ...bookingForm, date: e.target.value })
+                  }
+                  required
+                />
               </div>
               <div className="grid-cols-2">
                 <div className="form-group">
                   <label>Start Time</label>
-                  <input type="time" className="form-control" value={bookingForm.startTime} onChange={e => setBookingForm({ ...bookingForm, startTime: e.target.value })} required />
+                  <input
+                    type="time"
+                    className="form-control"
+                    value={bookingForm.startTime}
+                    onChange={(e) =>
+                      setBookingForm({
+                        ...bookingForm,
+                        startTime: e.target.value,
+                      })
+                    }
+                    required
+                  />
                 </div>
                 <div className="form-group">
                   <label>End Time</label>
-                  <input type="time" className="form-control" value={bookingForm.endTime} onChange={e => setBookingForm({ ...bookingForm, endTime: e.target.value })} required />
+                  <input
+                    type="time"
+                    className="form-control"
+                    value={bookingForm.endTime}
+                    onChange={(e) =>
+                      setBookingForm({
+                        ...bookingForm,
+                        endTime: e.target.value,
+                      })
+                    }
+                    required
+                  />
                 </div>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={() => setActiveModal(null)}>Cancel</button>
-                <button type="submit" className="btn btn-primary">Submit Booking</button>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => setActiveModal(null)}
+                >
+                  Cancel
+                </button>
+                <button type="submit" className="btn btn-primary">
+                  Submit Booking
+                </button>
               </div>
             </form>
           </div>
@@ -2572,26 +4687,64 @@ function App() {
 
       {activeModal === "requestMaintenance" && (
         <div className="modal-backdrop" onClick={() => setActiveModal(null)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Raise Maintenance Request</h3>
-              <button className="notification-bell" onClick={() => setActiveModal(null)}><X size={16} /></button>
+              <button
+                className="notification-bell"
+                onClick={() => setActiveModal(null)}
+              >
+                <X size={16} />
+              </button>
             </div>
             <form onSubmit={createMaintenanceRequest}>
               <div className="form-group">
                 <label>Asset</label>
-                <select className="form-control" value={maintenanceForm.assetId} onChange={e => setMaintenanceForm({ ...maintenanceForm, assetId: e.target.value })} required>
+                <select
+                  className="form-control"
+                  value={maintenanceForm.assetId}
+                  onChange={(e) =>
+                    setMaintenanceForm({
+                      ...maintenanceForm,
+                      assetId: e.target.value,
+                    })
+                  }
+                  required
+                >
                   <option value="">Select Asset</option>
-                  {assets.map(a => <option key={a.id} value={a.id}>{a.name} ({a.tag})</option>)}
+                  {assets.map((a) => (
+                    <option key={a.id} value={a.id}>
+                      {a.name} ({a.tag})
+                    </option>
+                  ))}
                 </select>
               </div>
               <div className="form-group">
                 <label>Description of Issue</label>
-                <textarea className="form-control" value={maintenanceForm.description} onChange={e => setMaintenanceForm({ ...maintenanceForm, description: e.target.value })} required />
+                <textarea
+                  className="form-control"
+                  value={maintenanceForm.description}
+                  onChange={(e) =>
+                    setMaintenanceForm({
+                      ...maintenanceForm,
+                      description: e.target.value,
+                    })
+                  }
+                  required
+                />
               </div>
               <div className="form-group">
                 <label>Priority</label>
-                <select className="form-control" value={maintenanceForm.priority} onChange={e => setMaintenanceForm({ ...maintenanceForm, priority: e.target.value })}>
+                <select
+                  className="form-control"
+                  value={maintenanceForm.priority}
+                  onChange={(e) =>
+                    setMaintenanceForm({
+                      ...maintenanceForm,
+                      priority: e.target.value,
+                    })
+                  }
+                >
                   <option value="Low">Low</option>
                   <option value="Medium">Medium</option>
                   <option value="High">High</option>
@@ -2599,8 +4752,16 @@ function App() {
                 </select>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={() => setActiveModal(null)}>Cancel</button>
-                <button type="submit" className="btn btn-primary">Submit Ticket</button>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => setActiveModal(null)}
+                >
+                  Cancel
+                </button>
+                <button type="submit" className="btn btn-primary">
+                  Submit Ticket
+                </button>
               </div>
             </form>
           </div>
@@ -2609,43 +4770,104 @@ function App() {
 
       {activeModal === "addAudit" && (
         <div className="modal-backdrop" onClick={() => setActiveModal(null)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Create Audit Cycle</h3>
-              <button className="notification-bell" onClick={() => setActiveModal(null)}><X size={16} /></button>
+              <button
+                className="notification-bell"
+                onClick={() => setActiveModal(null)}
+              >
+                <X size={16} />
+              </button>
             </div>
             <form onSubmit={createAuditCycle}>
               <div className="form-group">
                 <label>Audit Name</label>
-                <input type="text" className="form-control" placeholder="Annual Q3 Electronics Audit" value={auditForm.name} onChange={e => setAuditForm({ ...auditForm, name: e.target.value })} required />
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Annual Q3 Electronics Audit"
+                  value={auditForm.name}
+                  onChange={(e) =>
+                    setAuditForm({ ...auditForm, name: e.target.value })
+                  }
+                  required
+                />
               </div>
               <div className="form-group">
                 <label>Scope (Department/Location)</label>
-                <input type="text" className="form-control" placeholder="Engineering or HQ Floor 4" value={auditForm.scope} onChange={e => setAuditForm({ ...auditForm, scope: e.target.value })} required />
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Engineering or HQ Floor 4"
+                  value={auditForm.scope}
+                  onChange={(e) =>
+                    setAuditForm({ ...auditForm, scope: e.target.value })
+                  }
+                  required
+                />
               </div>
               <div className="grid-cols-2">
                 <div className="form-group">
                   <label>Start Date</label>
-                  <input type="date" className="form-control" value={auditForm.startDate} onChange={e => setAuditForm({ ...auditForm, startDate: e.target.value })} required />
+                  <input
+                    type="date"
+                    className="form-control"
+                    value={auditForm.startDate}
+                    onChange={(e) =>
+                      setAuditForm({ ...auditForm, startDate: e.target.value })
+                    }
+                    required
+                  />
                 </div>
                 <div className="form-group">
                   <label>End Date</label>
-                  <input type="date" className="form-control" value={auditForm.endDate} onChange={e => setAuditForm({ ...auditForm, endDate: e.target.value })} required />
+                  <input
+                    type="date"
+                    className="form-control"
+                    value={auditForm.endDate}
+                    onChange={(e) =>
+                      setAuditForm({ ...auditForm, endDate: e.target.value })
+                    }
+                    required
+                  />
                 </div>
               </div>
               <div className="form-group">
                 <label>Auditors Assigned</label>
-                <select className="form-control" multiple value={auditForm.auditors} onChange={e => {
-                  const opts = Array.from(e.target.selectedOptions, option => option.value);
-                  setAuditForm({ ...auditForm, auditors: opts });
-                }}>
-                  {employees.map(emp => <option key={emp.id} value={emp.id}>{emp.name} ({emp.role})</option>)}
+                <select
+                  className="form-control"
+                  multiple
+                  value={auditForm.auditors}
+                  onChange={(e) => {
+                    const opts = Array.from(
+                      e.target.selectedOptions,
+                      (option) => option.value,
+                    );
+                    setAuditForm({ ...auditForm, auditors: opts });
+                  }}
+                >
+                  {employees.map((emp) => (
+                    <option key={emp.id} value={emp.id}>
+                      {emp.name} ({emp.role})
+                    </option>
+                  ))}
                 </select>
-                <span style={{ fontSize: "11px", color: "#8e8d85" }}>Hold Ctrl/Cmd to select multiple</span>
+                <span style={{ fontSize: "11px", color: "#8e8d85" }}>
+                  Hold Ctrl/Cmd to select multiple
+                </span>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={() => setActiveModal(null)}>Cancel</button>
-                <button type="submit" className="btn btn-primary">Schedule Audit</button>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => setActiveModal(null)}
+                >
+                  Cancel
+                </button>
+                <button type="submit" className="btn btn-primary">
+                  Schedule Audit
+                </button>
               </div>
             </form>
           </div>
@@ -2654,14 +4876,26 @@ function App() {
 
       {activeModal === "viewAuditResults" && selectedAudit && (
         <div className="modal-backdrop" onClick={() => setActiveModal(null)}>
-          <div className="modal-content" style={{ maxWidth: "700px" }} onClick={e => e.stopPropagation()}>
+          <div
+            className="modal-content"
+            style={{ maxWidth: "700px" }}
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="modal-header">
               <h3>{selectedAudit.name} - Verification & Discrepancies</h3>
-              <button className="notification-bell" onClick={() => setActiveModal(null)}><X size={16} /></button>
+              <button
+                className="notification-bell"
+                onClick={() => setActiveModal(null)}
+              >
+                <X size={16} />
+              </button>
             </div>
             <div className="modal-body">
               <h4 style={{ marginBottom: "12px" }}>Verify Scope Assets</h4>
-              <div className="table-container" style={{ maxHeight: "250px", overflowY: "auto" }}>
+              <div
+                className="table-container"
+                style={{ maxHeight: "250px", overflowY: "auto" }}
+              >
                 <table>
                   <thead>
                     <tr>
@@ -2672,27 +4906,75 @@ function App() {
                     </tr>
                   </thead>
                   <tbody>
-                    {assets.map(asset => {
+                    {assets.map((asset) => {
                       const result = selectedAudit.results[asset.id];
                       return (
                         <tr key={asset.id}>
-                          <td>{asset.name} ({asset.tag})</td>
+                          <td>
+                            {asset.name} ({asset.tag})
+                          </td>
                           <td>{asset.location}</td>
                           <td>
-                            <span style={{ fontSize: "12px", color: result ? "#10b981" : "#f59e0b" }}>
-                              {result ? `Verified: ${result.status}` : "Pending Verification"}
+                            <span
+                              style={{
+                                fontSize: "12px",
+                                color: result ? "#10b981" : "#f59e0b",
+                              }}
+                            >
+                              {result
+                                ? `Verified: ${result.status}`
+                                : "Pending Verification"}
                             </span>
                           </td>
                           <td>
                             {selectedAudit.status === "Active" && (
                               <div style={{ display: "flex", gap: "4px" }}>
-                                <button className="btn btn-primary" style={{ padding: "2px 6px", fontSize: "11px" }} onClick={() => verifyAuditAsset(selectedAudit.id, asset.id, "Verified")}>
+                                <button
+                                  className="btn btn-primary"
+                                  style={{
+                                    padding: "2px 6px",
+                                    fontSize: "11px",
+                                  }}
+                                  onClick={() =>
+                                    verifyAuditAsset(
+                                      selectedAudit.id,
+                                      asset.id,
+                                      "Verified",
+                                    )
+                                  }
+                                >
                                   Verified
                                 </button>
-                                <button className="btn btn-secondary" style={{ padding: "2px 6px", fontSize: "11px" }} onClick={() => verifyAuditAsset(selectedAudit.id, asset.id, "Damaged")}>
+                                <button
+                                  className="btn btn-secondary"
+                                  style={{
+                                    padding: "2px 6px",
+                                    fontSize: "11px",
+                                  }}
+                                  onClick={() =>
+                                    verifyAuditAsset(
+                                      selectedAudit.id,
+                                      asset.id,
+                                      "Damaged",
+                                    )
+                                  }
+                                >
                                   Damaged
                                 </button>
-                                <button className="btn btn-danger" style={{ padding: "2px 6px", fontSize: "11px" }} onClick={() => verifyAuditAsset(selectedAudit.id, asset.id, "Missing")}>
+                                <button
+                                  className="btn btn-danger"
+                                  style={{
+                                    padding: "2px 6px",
+                                    fontSize: "11px",
+                                  }}
+                                  onClick={() =>
+                                    verifyAuditAsset(
+                                      selectedAudit.id,
+                                      asset.id,
+                                      "Missing",
+                                    )
+                                  }
+                                >
                                   Missing
                                 </button>
                               </div>
@@ -2705,25 +4987,52 @@ function App() {
                 </table>
               </div>
 
-              <h4 style={{ marginTop: "24px", marginBottom: "12px" }}>Discrepancy Report</h4>
-              <div style={{ padding: "12px", backgroundColor: "rgba(255,255,255,0.02)", borderRadius: "8px", border: "1px solid rgba(255, 255, 255, 0.08)", fontSize: "13px" }}>
-                {Object.keys(selectedAudit.results).filter(key => selectedAudit.results[key].status !== "Verified").length === 0 ? (
+              <h4 style={{ marginTop: "24px", marginBottom: "12px" }}>
+                Discrepancy Report
+              </h4>
+              <div
+                style={{
+                  padding: "12px",
+                  backgroundColor: "rgba(255,255,255,0.02)",
+                  borderRadius: "8px",
+                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  fontSize: "13px",
+                }}
+              >
+                {Object.keys(selectedAudit.results).filter(
+                  (key) => selectedAudit.results[key].status !== "Verified",
+                ).length === 0 ? (
                   <span>No discrepancies found yet.</span>
                 ) : (
-                  Object.keys(selectedAudit.results).filter(key => selectedAudit.results[key].status !== "Verified").map(key => {
-                    const asset = assets.find(a => a.id === key);
-                    const res = selectedAudit.results[key];
-                    return (
-                      <div key={key} style={{ marginBottom: "6px" }}>
-                        <strong>{asset?.name} ({asset?.tag}):</strong> Reported as <span style={{ color: "#ef4444" }}>{res.status}</span> by {res.verifiedBy}.
-                      </div>
-                    );
-                  })
+                  Object.keys(selectedAudit.results)
+                    .filter(
+                      (key) => selectedAudit.results[key].status !== "Verified",
+                    )
+                    .map((key) => {
+                      const asset = assets.find((a) => a.id === key);
+                      const res = selectedAudit.results[key];
+                      return (
+                        <div key={key} style={{ marginBottom: "6px" }}>
+                          <strong>
+                            {asset?.name} ({asset?.tag}):
+                          </strong>{" "}
+                          Reported as{" "}
+                          <span style={{ color: "#ef4444" }}>{res.status}</span>{" "}
+                          by {res.verifiedBy}.
+                        </div>
+                      );
+                    })
                 )}
               </div>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-primary" onClick={() => setActiveModal(null)}>Done</button>
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => setActiveModal(null)}
+              >
+                Done
+              </button>
             </div>
           </div>
         </div>
