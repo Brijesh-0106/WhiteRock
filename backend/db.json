@@ -1,0 +1,201 @@
+{
+  "users": [
+    {
+      "id": "u-1",
+      "email": "admin@assetflow.com",
+      "password": "admin123",
+      "name": "Admin User",
+      "role": "Admin",
+      "departmentId": "",
+      "status": "Active"
+    },
+    {
+      "id": "u-2",
+      "email": "manager@assetflow.com",
+      "password": "password123",
+      "name": "John Manager",
+      "role": "Asset Manager",
+      "departmentId": "d-1",
+      "status": "Active"
+    },
+    {
+      "id": "u-3",
+      "email": "head@assetflow.com",
+      "password": "password123",
+      "name": "Sarah Head",
+      "role": "Department Head",
+      "departmentId": "d-1",
+      "status": "Active"
+    },
+    {
+      "id": "u-4",
+      "email": "employee@assetflow.com",
+      "password": "password123",
+      "name": "Alice Employee",
+      "role": "Employee",
+      "departmentId": "d-1",
+      "status": "Active"
+    },
+    {
+      "id": "u-1783837630704",
+      "email": "test1@tcs.com",
+      "password": "12345678",
+      "name": "Brijesh",
+      "role": "Employee",
+      "departmentId": "",
+      "status": "Active"
+    }
+  ],
+  "departments": [
+    {
+      "id": "d-1",
+      "name": "Engineering",
+      "parentId": "",
+      "headId": "u-3",
+      "status": "Active"
+    },
+    {
+      "id": "d-2",
+      "name": "Operations",
+      "parentId": "",
+      "headId": "",
+      "status": "Active"
+    }
+  ],
+  "categories": [
+    {
+      "id": "c-1",
+      "name": "Electronics",
+      "fields": [
+        "Warranty Period",
+        "RAM",
+        "Storage"
+      ]
+    },
+    {
+      "id": "c-2",
+      "name": "Furniture",
+      "fields": [
+        "Material",
+        "Dimensions"
+      ]
+    },
+    {
+      "id": "c-3",
+      "name": "Vehicles",
+      "fields": [
+        "License Plate",
+        "Model Year"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "a-1",
+      "tag": "AF-0001",
+      "name": "MacBook Pro",
+      "category": "Electronics",
+      "serialNumber": "SN-98765",
+      "acquisitionDate": "2026-01-10",
+      "acquisitionCost": 1500,
+      "condition": "Excellent",
+      "location": "HQ Room 401",
+      "isBookable": false,
+      "status": "Allocated",
+      "departmentId": "d-1",
+      "employeeId": "u-4",
+      "expectedReturnDate": "2026-08-10",
+      "customFields": {
+        "Warranty Period": "3 Years",
+        "RAM": "16GB",
+        "Storage": "512GB SSD"
+      }
+    },
+    {
+      "id": "a-2",
+      "tag": "AF-0002",
+      "name": "Dell Monitor 27",
+      "category": "Electronics",
+      "serialNumber": "SN-43210",
+      "acquisitionDate": "2026-02-15",
+      "acquisitionCost": 300,
+      "condition": "Good",
+      "location": "HQ Room 402",
+      "isBookable": false,
+      "status": "Available",
+      "departmentId": "",
+      "employeeId": "",
+      "expectedReturnDate": "",
+      "customFields": {
+        "Warranty Period": "2 Years",
+        "RAM": "N/A",
+        "Storage": "N/A"
+      }
+    },
+    {
+      "id": "a-3",
+      "tag": "AF-0003",
+      "name": "Conference Room A",
+      "category": "Furniture",
+      "serialNumber": "SN-RM-A",
+      "acquisitionDate": "2026-01-01",
+      "acquisitionCost": 5000,
+      "condition": "Excellent",
+      "location": "HQ Floor 1",
+      "isBookable": true,
+      "status": "Available",
+      "departmentId": "",
+      "employeeId": "",
+      "expectedReturnDate": "",
+      "customFields": {
+        "Material": "Glass and Wood",
+        "Dimensions": "20x15 ft"
+      }
+    }
+  ],
+  "allocations": [
+    {
+      "id": "al-1",
+      "assetId": "a-1",
+      "employeeId": "u-4",
+      "departmentId": "d-1",
+      "allocatedAt": "2026-01-10",
+      "expectedReturnDate": "2026-08-10",
+      "returnedAt": "",
+      "returnCondition": "",
+      "returnRemarks": "",
+      "status": "Active"
+    }
+  ],
+  "transfers": [],
+  "bookings": [
+    {
+      "id": "b-1",
+      "assetId": "a-3",
+      "employeeId": "u-4",
+      "date": "2026-07-15",
+      "startTime": "09:00",
+      "endTime": "10:00",
+      "status": "Upcoming"
+    }
+  ],
+  "maintenance": [],
+  "audits": [],
+  "notifications": [],
+  "logs": [
+    {
+      "id": "l-1",
+      "userId": "u-1",
+      "userName": "Admin User",
+      "action": "System initialized",
+      "timestamp": "2026-07-12T11:00:00.000Z"
+    },
+    {
+      "id": "l-1783837630719",
+      "userId": "u-1783837630704",
+      "userName": "Brijesh",
+      "action": "User signed up as Employee",
+      "timestamp": "2026-07-12T06:27:10.719Z"
+    }
+  ]
+}
