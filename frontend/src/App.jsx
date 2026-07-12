@@ -3402,6 +3402,7 @@ function App() {
                     key={col.key}
                     style={{
                       flex: "1",
+                      flexShrink: 0,
                       minWidth: "280px",
                       backgroundColor: "rgba(255, 255, 255, 0.02)",
                       border: "1px solid rgba(255, 255, 255, 0.05)",

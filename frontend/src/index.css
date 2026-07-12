@@ -47,6 +47,8 @@ body {
   padding: 40px;
   min-height: 100vh;
   background: transparent;
+  min-width: 0;
+  overflow-x: hidden;
 }
 
 .logo-container {
