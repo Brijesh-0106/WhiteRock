@@ -177,6 +177,15 @@
       "startTime": "09:00",
       "endTime": "10:00",
       "status": "Upcoming"
+    },
+    {
+      "id": "b-1783847934924",
+      "assetId": "a-3",
+      "employeeId": "u-1783837630704",
+      "date": "2026-07-12",
+      "startTime": "09:00",
+      "endTime": "10:00",
+      "status": "Upcoming"
     }
   ],
   "maintenance": [],
@@ -196,6 +205,13 @@
       "userName": "Brijesh",
       "action": "User signed up as Employee",
       "timestamp": "2026-07-12T06:27:10.719Z"
+    },
+    {
+      "id": "l-1783847934934",
+      "userId": "u-1783837630704",
+      "userName": "Brijesh",
+      "action": "Booked resource Conference Room A on 2026-07-12 09:00-10:00",
+      "timestamp": "2026-07-12T09:18:54.934Z"
     }
   ]
 }

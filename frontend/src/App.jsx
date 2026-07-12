@@ -24,6 +24,44 @@ import {
 
 const API_BASE = "http://localhost:5000/api";
 
+const BrandLogo = ({ size = 28 }) => {
+  const pad = Math.round(size * 0.15);
+  const svgSize = size - pad * 2;
+  return (
+    <div
+      style={{
+        width: size,
+        height: size,
+        background: "rgba(217, 119, 6, 0.1)",
+        border: "1.5px solid #d97706",
+        borderRadius: 8,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <svg
+        width={svgSize}
+        height={svgSize}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#d97706"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {/* Top isometric platform representing an asset */}
+        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+        {/* Layered database/resource tracks representing tracking and organization */}
+        <path d="M2 17l10 5 10-5" />
+        <path d="M2 12l10 5 10-5" />
+        {/* Central index line representing alignment and asset flow */}
+        <path d="M12 22V12" />
+      </svg>
+    </div>
+  );
+};
+
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [user, setUser] = useState(null);
@@ -32,6 +70,9 @@ function App() {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [authError, setAuthError] = useState("");
+
+  const [loaded, setLoaded] = useState(false);
+  const [loadingMsg, setLoadingMsg] = useState("Initializing application...");
 
   const [currentTab, setCurrentTab] = useState("dashboard");
   const [notifications, setNotifications] = useState([]);
@@ -89,65 +130,99 @@ function App() {
 
   const loadData = async () => {
     try {
+      setLoaded(false);
+      setLoadingMsg("Loading profile...");
       const profile = await apiRequest("/auth/me");
       setUser(profile);
+      
+      setLoadingMsg("Loading departments...");
       const deptsData = await apiRequest("/departments");
       setDepartments(deptsData);
+      
+      setLoadingMsg("Loading categories...");
       const catsData = await apiRequest("/categories");
       setCategories(catsData);
+      
+      setLoadingMsg("Loading assets...");
       const assetsData = await apiRequest("/assets");
       setAssets(assetsData);
+      
+      setLoadingMsg("Loading bookings...");
       const bookingsData = await apiRequest("/bookings");
       setBookings(bookingsData);
+      
+      setLoadingMsg("Loading maintenance...");
       const maintData = await apiRequest("/maintenance");
       setMaintenance(maintData);
+      
+      setLoadingMsg("Loading audits...");
       const auditsData = await apiRequest("/audits");
       setAudits(auditsData);
+      
+      setLoadingMsg("Loading transfers...");
       const transfersData = await apiRequest("/transfers");
       setTransfers(transfersData);
+      
+      setLoadingMsg("Loading notifications...");
       const notifsData = await apiRequest("/notifications");
       setNotifications(notifsData);
+      
+      setLoadingMsg("Loading analytics...");
       const analyticsData = await apiRequest("/analytics");
       setAnalytics(analyticsData);
 
       if (profile.role === "Admin") {
+        setLoadingMsg("Loading directory...");
         const employeesData = await apiRequest("/employees");
         setEmployees(employeesData);
+        
+        setLoadingMsg("Loading logs...");
         const logsData = await apiRequest("/logs");
         setLogs(logsData);
       }
+      
+      setLoaded(true);
     } catch (err) {
       console.error(err);
+      setLoaded(true);
     }
   };
 
   useEffect(() => {
     if (token) {
       loadData();
+    } else {
+      setLoaded(true);
     }
   }, [token]);
 
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
+      setLoaded(false);
+      setLoadingMsg("Registering...");
       const data = await apiRequest("/auth/signup", "POST", { email, password, name });
       localStorage.setItem("token", data.token);
       setToken(data.token);
       setAuthError("");
     } catch (err) {
       setAuthError(err.message);
+      setLoaded(true);
     }
   };
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      setLoaded(false);
+      setLoadingMsg("Logging in...");
       const data = await apiRequest("/auth/login", "POST", { email, password });
       localStorage.setItem("token", data.token);
       setToken(data.token);
       setAuthError("");
     } catch (err) {
       setAuthError(err.message);
+      setLoaded(true);
     }
   };
 
@@ -155,6 +230,7 @@ function App() {
     localStorage.removeItem("token");
     setToken("");
     setUser(null);
+    setLoaded(true);
   };
 
   const handleForgotPassword = async () => {
@@ -394,13 +470,13 @@ function App() {
       <div className="auth-wrapper">
         <div className="card auth-card">
           <div className="logo-container" style={{ justifyContent: "center", marginBottom: "20px" }}>
-            <div className="logo-icon"><Package size={20} /></div>
-            <span>AssetFlow</span>
+            <BrandLogo />
+            <span>WhiteRock</span>
           </div>
           <h2 style={{ textAlign: "center", marginBottom: "24px" }}>
             {authMode === "login" ? "Welcome Back" : "Register Account"}
           </h2>
-          {authError && <div style={{ color: "var(--accent-danger)", fontSize: "14px", marginBottom: "16px", textAlign: "center" }}>{authError}</div>}
+          {authError && <div style={{ color: "#ef4444", fontSize: "14px", marginBottom: "16px", textAlign: "center" }}>{authError}</div>}
           <form onSubmit={authMode === "login" ? handleLogin : handleSignup}>
             {authMode === "signup" && (
               <div className="form-group">
@@ -425,7 +501,7 @@ function App() {
               {authMode === "login" ? "Need an account? Sign Up" : "Already have an account? Login"}
             </span>
             {authMode === "login" && (
-              <span style={{ color: "var(--accent-primary)", cursor: "pointer" }} onClick={handleForgotPassword}>
+              <span style={{ color: "#d97706", cursor: "pointer" }} onClick={handleForgotPassword}>
                 Forgot Password?
               </span>
             )}
@@ -435,7 +511,22 @@ function App() {
     );
   }
 
-  if (!user) return <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}><RefreshCw className="animate-spin" /></div>;
+  if (!user || !loaded) {
+    return (
+      <div className="fixed inset-0 bg-[#1e1e1f] flex flex-col items-center justify-center gap-4 z-50">
+        {/* Spinner */}
+        <div className="w-10 h-10 border-2 border-gray-700 border-t-amber-600 rounded-full animate-spin" />
+
+        {/* Logo */}
+        <div className="flex items-center gap-2">
+          <BrandLogo />
+          <span className="text-[#c3c2b7] font-bold text-lg">WhiteRock</span>
+        </div>
+
+        <p className="text-gray-400 text-sm">{loadingMsg}</p>
+      </div>
+    );
+  }
 
   const filteredAssets = assets.filter(a => {
     const matchesSearch = a.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -449,11 +540,25 @@ function App() {
   });
 
   return (
-    <div className="app-container">
+    <div className="app-container" style={{ position: "relative" }}>
+      {!loaded && (
+        <div className="absolute inset-0 bg-[#1e1e1f] flex flex-col items-center justify-center gap-4 z-10">
+          {/* Spinner */}
+          <div className="w-10 h-10 border-2 border-gray-700 border-t-amber-600 rounded-full animate-spin" />
+
+          {/* Logo */}
+          <div className="flex items-center gap-2">
+            <BrandLogo />
+            <span className="text-[#c3c2b7] font-bold text-lg">WhiteRock</span>
+          </div>
+
+          <p className="text-gray-400 text-sm">{loadingMsg}</p>
+        </div>
+      )}
       <div className="sidebar">
         <div className="logo-container">
-          <div className="logo-icon"><Package size={20} /></div>
-          <span>AssetFlow</span>
+          <BrandLogo />
+          <span>WhiteRock</span>
         </div>
         <div className="nav-links">
           <div className={`nav-item ${currentTab === "dashboard" ? "active" : ""}`} onClick={() => setCurrentTab("dashboard")}>
@@ -543,7 +648,7 @@ function App() {
           <div>
             <div className="kpi-grid">
               <div className="card kpi-card">
-                <div className="kpi-icon-wrapper" style={{ backgroundColor: "var(--accent-primary)" }}>
+                <div className="kpi-icon-wrapper" style={{ backgroundColor: "#d97706" }}>
                   <Package size={20} />
                 </div>
                 <div>
@@ -552,7 +657,7 @@ function App() {
                 </div>
               </div>
               <div className="card kpi-card">
-                <div className="kpi-icon-wrapper" style={{ backgroundColor: "var(--accent-success)" }}>
+                <div className="kpi-icon-wrapper" style={{ backgroundColor: "#10b981" }}>
                   <Check size={20} />
                 </div>
                 <div>
@@ -561,7 +666,7 @@ function App() {
                 </div>
               </div>
               <div className="card kpi-card">
-                <div className="kpi-icon-wrapper" style={{ backgroundColor: "var(--accent-info)" }}>
+                <div className="kpi-icon-wrapper" style={{ backgroundColor: "#06b6d4" }}>
                   <ArrowRightLeft size={20} />
                 </div>
                 <div>
@@ -570,7 +675,7 @@ function App() {
                 </div>
               </div>
               <div className="card kpi-card">
-                <div className="kpi-icon-wrapper" style={{ backgroundColor: "var(--accent-warning)" }}>
+                <div className="kpi-icon-wrapper" style={{ backgroundColor: "#f59e0b" }}>
                   <Wrench size={20} />
                 </div>
                 <div>
@@ -639,13 +744,13 @@ function App() {
                   </div>
                 </div>
 
-                <div className="card" style={{ borderLeft: "4px solid var(--accent-warning)" }}>
-                  <h3 style={{ marginBottom: "12px", color: "var(--accent-warning)", display: "flex", alignItems: "center", gap: "8px" }}>
+                <div className="card" style={{ borderLeft: "4px solid #f59e0b" }}>
+                  <h3 style={{ marginBottom: "12px", color: "#f59e0b", display: "flex", alignItems: "center", gap: "8px" }}>
                     <ShieldAlert size={20} /> Active Alerts
                   </h3>
                   <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                     {assets.filter(a => a.status === "Allocated" && a.expectedReturnDate && new Date(a.expectedReturnDate) < new Date()).map(a => (
-                      <div key={a.id} style={{ fontSize: "13px" }}>
+                       <div key={a.id} style={{ fontSize: "13px" }}>
                         <strong>Overdue:</strong> {a.name} ({a.tag}) was expected on {a.expectedReturnDate}.
                       </div>
                     ))}
@@ -655,7 +760,7 @@ function App() {
                       </div>
                     ))}
                     {assets.filter(a => a.status === "Allocated" && a.expectedReturnDate).length === 0 && (
-                      <span style={{ fontSize: "13px", color: "var(--text-secondary)" }}>No alerts at the moment.</span>
+                      <span style={{ fontSize: "13px", color: "#8e8d85" }}>No alerts at the moment.</span>
                     )}
                   </div>
                 </div>
@@ -960,7 +1065,7 @@ function App() {
                       {day > 0 && day <= 31 && dayBookings.map(b => {
                         const res = assets.find(a => a.id === b.assetId);
                         return (
-                          <div key={b.id} className="calendar-booking-indicator" style={{ backgroundColor: b.status === "Cancelled" ? "var(--accent-danger)" : "var(--accent-primary)" }}>
+                          <div key={b.id} className="calendar-booking-indicator" style={{ backgroundColor: b.status === "Cancelled" ? "#ef4444" : "#d97706" }}>
                             {b.startTime} - {res?.name || "Resource"}
                           </div>
                         );
@@ -1358,7 +1463,7 @@ function App() {
               </div>
 
               {assetForm.category && (
-                <div style={{ marginTop: "16px", padding: "16px", backgroundColor: "rgba(255,255,255,0.02)", borderRadius: "8px", border: "1px solid var(--border-color)" }}>
+                <div style={{ marginTop: "16px", padding: "16px", backgroundColor: "rgba(255,255,255,0.02)", borderRadius: "8px", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
                   <h4 style={{ marginBottom: "12px" }}>Category-specific Details</h4>
                   {categories.find(c => c.name === assetForm.category)?.fields.map(field => (
                     <div className="form-group" key={field}>
@@ -1444,7 +1549,7 @@ function App() {
                     const fromEmp = employees.find(e => e.id === t.fromEmployeeId);
                     const toEmp = employees.find(e => e.id === t.toEmployeeId);
                     return (
-                      <div key={t.id} className="flex-between" style={{ padding: "10px", backgroundColor: "rgba(255,255,255,0.02)", borderRadius: "8px", border: "1px solid var(--border-color)" }}>
+                      <div key={t.id} className="flex-between" style={{ padding: "10px", backgroundColor: "rgba(255,255,255,0.02)", borderRadius: "8px", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
                         <span style={{ fontSize: "13px" }}>From {fromEmp?.name} to {toEmp?.name}</span>
                         {(user.role === "Asset Manager" || user.role === "Admin" || user.role === "Department Head") && (
                           <button className="btn btn-primary" style={{ padding: "4px 8px", fontSize: "12px" }} onClick={() => approveTransfer(t.id)}>
@@ -1600,7 +1705,7 @@ function App() {
                 }}>
                   {employees.map(emp => <option key={emp.id} value={emp.id}>{emp.name} ({emp.role})</option>)}
                 </select>
-                <span style={{ fontSize: "11px", color: "var(--text-secondary)" }}>Hold Ctrl/Cmd to select multiple</span>
+                <span style={{ fontSize: "11px", color: "#8e8d85" }}>Hold Ctrl/Cmd to select multiple</span>
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" onClick={() => setActiveModal(null)}>Cancel</button>
@@ -1638,7 +1743,7 @@ function App() {
                           <td>{asset.name} ({asset.tag})</td>
                           <td>{asset.location}</td>
                           <td>
-                            <span style={{ fontSize: "12px", color: result ? "var(--accent-success)" : "var(--accent-warning)" }}>
+                            <span style={{ fontSize: "12px", color: result ? "#10b981" : "#f59e0b" }}>
                               {result ? `Verified: ${result.status}` : "Pending Verification"}
                             </span>
                           </td>
@@ -1665,7 +1770,7 @@ function App() {
               </div>
 
               <h4 style={{ marginTop: "24px", marginBottom: "12px" }}>Discrepancy Report</h4>
-              <div style={{ padding: "12px", backgroundColor: "rgba(255,255,255,0.02)", borderRadius: "8px", border: "1px solid var(--border-color)", fontSize: "13px" }}>
+              <div style={{ padding: "12px", backgroundColor: "rgba(255,255,255,0.02)", borderRadius: "8px", border: "1px solid rgba(255, 255, 255, 0.08)", fontSize: "13px" }}>
                 {Object.keys(selectedAudit.results).filter(key => selectedAudit.results[key].status !== "Verified").length === 0 ? (
                   <span>No discrepancies found yet.</span>
                 ) : (
@@ -1674,7 +1779,7 @@ function App() {
                     const res = selectedAudit.results[key];
                     return (
                       <div key={key} style={{ marginBottom: "6px" }}>
-                        <strong>{asset?.name} ({asset?.tag}):</strong> Reported as <span style={{ color: "var(--accent-danger)" }}>{res.status}</span> by {res.verifiedBy}.
+                        <strong>{asset?.name} ({asset?.tag}):</strong> Reported as <span style={{ color: "#ef4444" }}>{res.status}</span> by {res.verifiedBy}.
                       </div>
                     );
                   })
