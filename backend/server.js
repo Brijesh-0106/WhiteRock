@@ -1128,4 +1128,5 @@ app.get("/api/logs", authMiddleware, async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
+  console.log(`Connected to Database URI: ${MONGODB_URI}`);
 });
